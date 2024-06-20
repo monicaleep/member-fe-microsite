@@ -1,0 +1,18 @@
+{
+  "name": "member-fe-microsite",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Microsite for Member FE Conference July 2024",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "handlebars": "^4.7.8"
+  }
+}
