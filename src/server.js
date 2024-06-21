@@ -9,7 +9,7 @@ function registerPartials() {
   const partialDir = `${baseDir}partials`;
   const partialFiles = fs.readdirSync(partialDir);
   partialFiles
-    .filter((file) => file.endsWith(".html"))
+    .filter((file) => file.endsWith(".hbs"))
     .forEach((file) => {
       const partialName = file.split(".")[0];
       console.log(`Registering Partial ${partialName}`);
@@ -25,7 +25,7 @@ function compileTemplates() {
   // should I change all handlebars files to ebs?
   const templateMap = {};
   templateFiles
-    .filter((template) => template.endsWith(".html"))
+    .filter((template) => template.endsWith(".hbs"))
     .forEach((template) => {
       // compile each template, store in map with key being filename
       const filePath = `${baseDir}templates/${template}`;
