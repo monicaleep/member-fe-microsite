@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch src/server.js"
+    "start": "node --watch src/server.js",
+    "cypress": "cypress open"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,8 @@
   "dependencies": {
     "express": "^4.19.2",
     "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "cypress": "^13.12.0"
   }
 }
