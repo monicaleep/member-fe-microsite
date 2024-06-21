@@ -1,7 +1,7 @@
 import express from "express";
 import handlebars from "handlebars";
 import fs from "fs";
-
+import presentations from './db/presentations.json' with {type: "json"}
 const app = express();
 
 const baseDir = "./src/";
@@ -57,11 +57,9 @@ app.get("/", (_, res) => {
 });
 
 app.get("/presentations", (_, res) => {
-  const filePath = `${baseDir}db/presentations.json`
-  const fileString = fs.readFileSync(filePath, {encoding: 'utf-8'})
-  const prezzos = JSON.parse(fileString)
 
-  const html = render("presentations", {prezzos});
+
+  const html = render("presentations", { presentations});
   res.status(200).send(html);
 });
 
