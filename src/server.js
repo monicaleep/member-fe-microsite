@@ -22,7 +22,7 @@ function registerPartials() {
 
 function compileTemplates() {
   const templateFiles = fs.readdirSync(`${baseDir}templates`);
-  // should I change all handlebars files to ebs?
+  
   const templateMap = {};
   templateFiles
     .filter((template) => template.endsWith(".hbs"))
@@ -55,6 +55,15 @@ app.get("/", (_, res) => {
   const html = render("index", { test: "hi there" });
   res.status(200).send(html);
 });
+
+app.get("/presentations", (_, res) => {
+  const filePath = `${baseDir}db/presentations.json`
+  const prezzos = fs.readFileSync(filePath, {encoding: 'utf-8'})
+
+  const html = render("presentations", prezzos);
+  res.status(200).send(html);
+});
+
 
 app.listen(3000, () => {
   console.log("app listening on 3000");
