@@ -5,9 +5,9 @@
   "description": "Microsite for Member FE Conference July 2024",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch src/server.js",
-    "cypress": "cypress open"
+    "start:watch": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "cypress:open": "cypress open"
   },
   "keywords": [],
   "author": "",
