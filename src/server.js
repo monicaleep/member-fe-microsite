@@ -58,9 +58,10 @@ app.get("/", (_, res) => {
 
 app.get("/presentations", (_, res) => {
   const filePath = `${baseDir}db/presentations.json`
-  const prezzos = fs.readFileSync(filePath, {encoding: 'utf-8'})
+  const fileString = fs.readFileSync(filePath, {encoding: 'utf-8'})
+  const prezzos = JSON.parse(fileString)
 
-  const html = render("presentations", prezzos);
+  const html = render("presentations", {prezzos});
   res.status(200).send(html);
 });
 
