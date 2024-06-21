@@ -7,12 +7,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --watch src/server.js",
-    "dev": "nodemon -e hbs -V src/server.js"
+    "dev": "nodemon -e hbs,js -V src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+
     "express": "^4.19.2",
     "handlebars": "^4.7.8",
     "nodemon": "^3.1.4"

@@ -2,6 +2,8 @@ import express from "express";
 import handlebars from "handlebars";
 import fs from "fs";
 import presentations from './db/presentations.json' with {type: "json"}
+
+
 const app = express();
 
 const baseDir = "./src/";
@@ -44,7 +46,8 @@ function render(templateName, data) {
   const html = template(data);
   return html;
 }
-
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 app.use((req, _, next) => {
   console.log(`request for ${req.path}`);
 
@@ -57,12 +60,16 @@ app.get("/", (_, res) => {
 });
 
 app.get("/presentations", (_, res) => {
-
-
   const html = render("presentations", { presentations});
   res.status(200).send(html);
 });
 
+app.post('/search', (req, res) => {
+  const searchPresentations = presentations.filter(pres => pres.name.includes(req.body.search))
+
+  const html = render("search", { presentations: searchPresentations});
+  res.status(200).send(html)
+})
 
 app.listen(3000, () => {
   console.log("app listening on 3000");
