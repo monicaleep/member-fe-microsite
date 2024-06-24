@@ -2,6 +2,7 @@ import express from "express";
 import handlebars from "handlebars";
 import fs from "fs";
 import presentations from './db/presentations.json' with {type: "json"}
+import  searchPresentations  from "./utils/search.js";
 
 
 const app = express();
@@ -65,9 +66,9 @@ app.get("/presentations", (_, res) => {
 });
 
 app.post('/search', (req, res) => {
-  const searchPresentations = presentations.filter(pres => pres.name.includes(req.body.search))
+  const presentationsFound = searchPresentations(req.body.search, presentations)
 
-  const html = render("search", { presentations: searchPresentations});
+  const html = render("search", { presentations: presentationsFound});
   res.status(200).send(html)
 })
 

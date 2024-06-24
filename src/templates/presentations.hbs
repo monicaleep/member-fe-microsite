@@ -14,7 +14,7 @@
 
 <h3> 
   Search Presentations 
-  <span class="htmx-indicator"> 
+  <span id="htmx-indicator"> 
 Searching... 
    </span> 
 </h3>
@@ -24,24 +24,19 @@ Searching...
        hx-trigger="input changed delay:500ms, search" 
        hx-target="#search-results" 
        hx-swap="outerHTML"
-       hx-indicator=".htmx-indicator">
+       hx-indicator="#htmx-indicator">
 
 <table class="table">
     <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th>First Name</th>
+      <th>Last Name</th>
     </tr>
     </thead>
-    <tbody id="search-results">
-       
-   {{#each presentations}}
-   <tr>
-      <td>{{name}}</td>
-    <td>{{email}}</td>
-   </tr>
-    {{/each}}
-    </tbody>
+    {{> presentation-table presentations=presentations}}
+   
 </table>
  
   </body>
