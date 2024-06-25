@@ -1,7 +1,7 @@
 import express from "express";
 import handlebars from "handlebars";
 import fs from "fs";
-import presentations from './db/presentations.json' with {type: "json"}
+import presentations from './db/presentations.json' assert {type: "json"}
 import  searchPresentations  from "./utils/search.js";
 
 
@@ -62,6 +62,14 @@ app.get("/", (_, res) => {
 
 app.get("/presentations", (_, res) => {
   const html = render("presentations", { presentations});
+  res.status(200).send(html);
+});
+
+app.get("/presentations/:id", (req, res) => { //the id path
+  const presID = req.params.id
+  const presentation = presentations.find((presentation) => presentation._id == presID)
+  
+  const html = render("presentationDesc", {testing: presID});
   res.status(200).send(html);
 });
 
