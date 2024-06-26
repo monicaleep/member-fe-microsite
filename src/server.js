@@ -66,10 +66,10 @@ app.get("/presentations", (_, res) => {
 });
 
 app.get("/presentations/:id", (req, res) => { //the id path
-  const presID = req.params.id
-  const presentation = presentations.find((presentation) => presentation._id == presID)
-  
-  const html = render("presentationDesc", {testing: presID});
+  const presID = req.params.id;
+  const presentation = presentations.find((presentation) => presentation._id == presID);
+  console.log(presentation);
+  const html = render("presentationDesc", {testing: presentation});
   res.status(200).send(html);
 });
 
