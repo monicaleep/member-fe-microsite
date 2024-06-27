@@ -5,8 +5,10 @@
   "description": "Microsite for Member FE Conference July 2024",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch src/server.js"
+    "start:watch": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +16,8 @@
   "dependencies": {
     "express": "^4.19.2",
     "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "cypress": "^13.12.0"
   }
 }
