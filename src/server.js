@@ -1,8 +1,9 @@
 import express from "express";
 import handlebars from "handlebars";
 import fs from "fs";
-import presentations from './db/presentations.json' assert {type: "json"}
+import presentations from './db/presentations.json' with {type: "json"}
 import  searchPresentations  from "./utils/search.js";
+import { assert } from "console";
 
 
 const app = express();
@@ -68,8 +69,10 @@ app.get("/presentations", (_, res) => {
 app.get("/presentations/:id", (req, res) => { //the id path
   const presID = req.params.id;
   const presentation = presentations.find((presentation) => presentation._id == presID);
-  console.log(presentation);
-  const html = render("presentationDesc", {testing: presentation});
+  if (presentation == null){
+    res.status(404).send("<h1>Presentation not found</h1>");
+  }
+  const html = render("presentationDesc", {presentation: presentation});
   res.status(200).send(html);
 });
 
