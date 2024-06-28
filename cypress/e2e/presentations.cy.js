@@ -58,6 +58,20 @@ describe("Presentations Page", () => {
     cy.getByTestId(presentationFavoriteToggle).contains("♥️");
   });
 
+  it("should persist favorites across search", () => {
+    cy.visit("/presentations");
+    // initial state is unfavorited
+    cy.getByTestId(presentationFavoriteToggle).contains("♡");
+    // toggle to be favorited
+    cy.getByTestId(presentationFavoriteToggle).click();
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
+
+    cy.getByTestId("presentation-search").type("transform customized");
+    // ensure search has finished before asserting favorited row
+    cy.getByTestId("presentation-row").should("have.length", 1);
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
+  });
+
   it("should allow for favoriting on list page, favorite persists on detail page", () => {
     cy.visit("/presentations");
     // initial state is unfavorited
