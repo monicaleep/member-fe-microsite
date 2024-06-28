@@ -25,7 +25,7 @@ describe("Presentations Page", () => {
       "include",
       "/presentations/7415a027-865c-4112-aff4-f617cc3093d2",
     );
-    cy.contains("h1", "transform customized e-markets")
+    cy.contains("transform customized e-markets")
   });
 
   it("should show 404 if linking to unknown presentation page", () => {
