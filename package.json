@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --watch src/server.js",
-    "dev": "nodemon -e hbs,js -V src/server.js",
+    "dev": "nodemon -e hbs,js -i cypress/ -V src/server.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-session": "^2.1.0",
     "express": "^4.19.2",
     "express-handlebars": "^7.1.3",
     "nodemon": "^3.1.4"
