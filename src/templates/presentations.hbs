@@ -1,0 +1,45 @@
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1>Presentations</h1>
+
+<h3> 
+  Search Presentations 
+  <span id="htmx-indicator"> 
+Searching... 
+   </span> 
+</h3>
+<input class="form-control" type="search" 
+       name="search" placeholder="Begin Typing To Search..." 
+       data-testId="presentation-search"
+       hx-post="/search" 
+       hx-trigger="input changed delay:500ms, search" 
+       hx-target="#search-results" 
+       hx-swap="outerHTML"
+       hx-indicator="#htmx-indicator">
+
+<table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+    </thead>
+    {{> presentation-table presentations=presentations}}
+   
+</table>
+ 
+  </body>
+       <script src="https://unpkg.com/htmx.org@2.0.0"></script>
+</html>

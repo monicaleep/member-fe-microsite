@@ -5,8 +5,9 @@
   "description": "Microsite for Member FE Conference July 2024",
   "main": "index.js",
   "scripts": {
-    "start:watch": "node --watch src/server.js",
-    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch src/server.js",
+    "dev": "nodemon -e hbs,js -V src/server.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
@@ -14,10 +15,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+
     "express": "^4.19.2",
-    "handlebars": "^4.7.8"
+    "handlebars": "^4.7.8",
+    "nodemon": "^3.1.4"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "handlebars": "^4.7.8",
     "cypress": "^13.12.0"
   }
 }
