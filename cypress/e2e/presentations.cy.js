@@ -71,24 +71,20 @@ describe("Presentations Page", () => {
     );
   });
 
-  // there is state shared between these tests, due to favorites living on the server
-  // this should go away once we use cookie based view state
   it("should allow for favoriting on detail page, favorite persists on list page", () => {
     cy.visit("/presentations/7415a027-865c-4112-aff4-f617cc3093d2");
-    // initial state is favorited
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♥️",
-    );
-    // toggle to be unfavorited
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").click();
     cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
       "♡",
+    );
+    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").click();
+    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
+      "♥️",
     );
 
     // toggle off
     cy.visit("/presentations");
     cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♡",
+      "♥️",
     );
   });
 });
