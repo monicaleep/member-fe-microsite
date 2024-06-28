@@ -5,6 +5,7 @@ import presentations from "./db/presentations.json" with { type: "json" };
 import searchPresentations from "./utils/search.js";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
+import { mergePresentationsWithFavorites } from "./utils/favorites.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
@@ -42,17 +43,18 @@ app.get("/", (_, res) => {
 });
 
 app.get("/presentations", (req, res) => {
-  const favorites = req.session.favorite_presentations
-  const presentationsWithFavorites = presentations.map((p) => ({
-    ...p,
-    favorited: favorites.includes(p._id),
-  }));
+  const favorites = req.session.favorite_presentations;
+  const presentationsWithFavorites = mergePresentationsWithFavorites(
+    presentations,
+    favorites,
+  );
+
   res.render("presentations", { presentations: presentationsWithFavorites });
 });
 
 app.get("/presentations/:id", (req, res) => {
   const presID = req.params.id;
-  const favorites = req.session.favorite_presentations
+  const favorites = req.session.favorite_presentations;
   const presentation = presentations.find(
     (presentation) => presentation._id == presID,
   );
@@ -66,25 +68,22 @@ app.get("/presentations/:id", (req, res) => {
   });
 });
 
-
 app.post("/search", (req, res) => {
-  const favorites = req.session.favorite_presentations
+  const favorites = req.session.favorite_presentations;
   const presentationsFound = searchPresentations(
     req.body.search,
     presentations,
   );
-  // move into utility method?
-  const presentationsWithFavorites = presentationsFound .map((p) => ({
-    ...p,
-    favorited: favorites.includes(p._id),
-  }));
-
-  res.render("search", { presentations: presentationsWithFavorites , layout: false });
+  const presentationsWithFavorites = mergePresentationsWithFavorites(presentationsFound, favorites)
+  res.render("search", {
+    presentations: presentationsWithFavorites,
+    layout: false,
+  });
 });
 
 app.put("/presentations/favorite/:id", (req, res) => {
   const id = req.params.id;
-  let favorites = req.session.favorite_presentations
+  let favorites = req.session.favorite_presentations;
   // what if id doesn't exist???
 
   // we'll toggle favorite on and off with this endpoint
@@ -93,7 +92,7 @@ app.put("/presentations/favorite/:id", (req, res) => {
     ? favorites.filter((f) => f !== id)
     : [...favorites, id];
 
-  req.session.favorite_presentations = favorites
+  req.session.favorite_presentations = favorites;
   res.render("favorited_response", {
     favorited: !isExistingFavorite,
     id,
