@@ -40,8 +40,9 @@ app.get("/presentations/:id", (req, res) => {
     res.render("404", { message: "Presentation not found" });
     return;
   }
+  const favorited = favorites.includes(presentation._id);
   res.render("presentation_description", {
-    presentation: presentation,
+    presentation: { ...presentation, favorited },
   });
 });
 

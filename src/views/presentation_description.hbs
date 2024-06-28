@@ -4,3 +4,6 @@
 <div>{{presentation.email}}</div>
 <div>{{presentation._id}}</div>
 <div>{{presentation.tag}}</div>
+<div>
+{{> favorited_cell favorited=presentation.favorited id=presentation._id }}
+</div>
