@@ -46,6 +46,18 @@ describe("Presentations Page", () => {
     cy.getByTestId(presentationFavoriteToggle).contains("♡");
   });
 
+  it("should persist favorites across sessions", () => {
+    cy.visit("/presentations");
+    // initial state is unfavorited
+    cy.getByTestId(presentationFavoriteToggle).contains("♡");
+    // toggle to be favorited
+    cy.getByTestId(presentationFavoriteToggle).click();
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
+
+    cy.reload()
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
+  });
+
   it("should allow for favoriting on list page, favorite persists on detail page", () => {
     cy.visit("/presentations");
     // initial state is unfavorited
@@ -70,5 +82,22 @@ describe("Presentations Page", () => {
     cy.getByTestId(presentationFavoriteToggle).contains("♥️");
   });
 
-  it("should take favorited ids from session cookie", () => { });
+  it("should take favorited ids from session cookie", () => {
+    const sessionObj = {
+      favorite_presentations: [
+        "326fb434-e199-427f-a523-042969cb4a86",
+        "7307b163-dcbe-4d12-ad18-43f5b7af1528",
+      ],
+    };
+    const encodedCookie = btoa(JSON.stringify(sessionObj));
+    cy.setCookie("session", encodedCookie);
+    cy.visit("/presentations");
+    // all presentations in session cookie should be favorited
+    sessionObj.favorite_presentations.forEach((presentationId) => {
+      cy.getByTestId(`favorite-${presentationId}`).contains("♥️");
+    });
+
+    // other presentations should not be favorited
+    cy.getByTestId(presentationFavoriteToggle).contains("♡");
+  });
 });
