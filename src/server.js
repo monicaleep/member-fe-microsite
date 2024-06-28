@@ -24,7 +24,10 @@ app.get("/", (_, res) => {
 });
 
 app.get("/presentations", (_, res) => {
-  res.render("presentations", { presentations });
+  res.render("presentations", {
+    title: "Presentations",
+    presentations,
+  });
 });
 
 app.get("/presentations/:id", (req, res) => {
@@ -37,6 +40,7 @@ app.get("/presentations/:id", (req, res) => {
     return
   }
   res.render("presentation_description", {
+    title: presentation.name,
     presentation: presentation,
   });
 });
