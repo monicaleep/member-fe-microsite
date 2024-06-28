@@ -46,7 +46,7 @@ app.get("/presentations/:id", (req, res) => {
 });
 
 // temporary to hold favorite state in server state until we get viewstate in place
-const favorites = [ "2c3e35bd-5b08-4cd5-a537-6f056edd0a4e"];
+let favorites = ["2c3e35bd-5b08-4cd5-a537-6f056edd0a4e"];
 
 app.post("/search", (req, res) => {
   const presentationsFound = searchPresentations(
@@ -57,6 +57,22 @@ app.post("/search", (req, res) => {
   res.render("search", { presentations: presentationsFound, layout: false });
 });
 
+app.put("/presentation/favorite/:id", (req, res) => {
+  const id = req.params.id;
+  // what if id doesn't exist???
+
+  // we'll toggle favorite on and off with this endpoint
+  const isExistingFavorite = favorites.includes(id);
+  favorites = isExistingFavorite
+    ? favorites.filter((f) => f !== id)
+    : [...favorites, id];
+
+  res.render("favorited_response", {
+    favorited: !isExistingFavorite,
+    id,
+    layout: false,
+  });
+});
 
 app.listen(3000, () => {
   console.log("app listening on 3000");

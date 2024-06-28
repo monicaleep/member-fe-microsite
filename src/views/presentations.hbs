@@ -9,8 +9,8 @@ Searching...
 <input class="form-control" type="search" 
        name="search" placeholder="Begin Typing To Search..." 
        data-testId="presentation-search"
-       hx-post="/search" 
        hx-trigger="input changed delay:500ms, search" 
+       hx-post="/search" 
        hx-target="#search-results" 
        hx-swap="outerHTML"
        hx-indicator="#htmx-indicator">
@@ -22,6 +22,9 @@ Searching...
       <th>Email</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>Link</th>
+      <th>Favorited?</th>
+
     </tr>
     </thead>
     {{> presentation-table presentations=presentations}}

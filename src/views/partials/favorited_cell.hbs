@@ -1,0 +1,11 @@
+<td
+  hx-trigger="click"
+  hx-put="/presentation/favorite/{{id}}"
+  hx-swap="outerHTML"
+>
+  {{#if favorited}}
+    Big Fan!
+  {{else}}
+    Not a favorite
+  {{/if}}
+</td>
