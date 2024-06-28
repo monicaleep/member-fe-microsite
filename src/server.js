@@ -58,7 +58,7 @@ app.post("/search", (req, res) => {
   res.render("search", { presentations: presentationsFound, layout: false });
 });
 
-app.put("/presentation/favorite/:id", (req, res) => {
+app.put("/presentations/favorite/:id", (req, res) => {
   const id = req.params.id;
   // what if id doesn't exist???
 
