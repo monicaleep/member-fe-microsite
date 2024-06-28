@@ -54,7 +54,7 @@ describe("Presentations Page", () => {
     cy.getByTestId(presentationFavoriteToggle).click();
     cy.getByTestId(presentationFavoriteToggle).contains("♥️");
 
-    cy.reload()
+    cy.reload();
     cy.getByTestId(presentationFavoriteToggle).contains("♥️");
   });
 
