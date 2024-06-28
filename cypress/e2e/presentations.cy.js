@@ -33,7 +33,7 @@ describe("Presentations Page", () => {
     cy.contains("Presentation not found");
   });
 
-  it.only("should allow for favoriting/unfavoriting", () => {
+  it("should allow for favoriting/unfavoriting", () => {
     cy.visit("/presentations");
     // initial state is unfavorited
     cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
@@ -49,6 +49,25 @@ describe("Presentations Page", () => {
     cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").click();
     cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
       "♡",
+    );
+  });
+
+  it("should allow for favoriting, then navigating to presentation detail", () => {
+    cy.visit("/presentations");
+    // initial state is unfavorited
+    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
+      "♡",
+    );
+    // toggle to be favorited
+    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").click();
+    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
+      "♥️",
+    );
+
+    // toggle off
+    cy.visit("/presentations/7415a027-865c-4112-aff4-f617cc3093d2");
+    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
+      "♥️",
     );
   });
 });
