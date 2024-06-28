@@ -47,7 +47,7 @@ app.get("/presentations/:id", (req, res) => {
 });
 
 // temporary to hold favorite state in server state until we get viewstate in place
-let favorites = ["2c3e35bd-5b08-4cd5-a537-6f056edd0a4e"];
+let favorites = [];
 
 app.post("/search", (req, res) => {
   const presentationsFound = searchPresentations(
