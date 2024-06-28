@@ -1,10 +1,8 @@
 import express from "express";
 import handlebars from "handlebars";
 import fs from "fs";
-import presentations from './db/presentations.json' with {type: "json"}
-import  searchPresentations  from "./utils/search.js";
-import { assert } from "console";
-
+import presentations from "./db/presentations.json" with { type: "json" };
+import searchPresentations from "./utils/search.js";
 
 const app = express();
 
@@ -26,7 +24,7 @@ function registerPartials() {
 
 function compileTemplates() {
   const templateFiles = fs.readdirSync(`${baseDir}templates`);
-  
+
   const templateMap = {};
   templateFiles
     .filter((template) => template.endsWith(".hbs"))
@@ -48,8 +46,8 @@ function render(templateName, data) {
   const html = template(data);
   return html;
 }
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use((req, _, next) => {
   console.log(`request for ${req.path}`);
 
@@ -62,26 +60,35 @@ app.get("/", (_, res) => {
 });
 
 app.get("/presentations", (_, res) => {
-  const html = render("presentations", { presentations});
+  const html = render("presentations", { presentations });
   res.status(200).send(html);
 });
 
-app.get("/presentations/:id", (req, res) => { //the id path
+app.get("/presentations/:id", (req, res) => {
+  //the id path
   const presID = req.params.id;
-  const presentation = presentations.find((presentation) => presentation._id == presID);
-  if (presentation == null){
+  const presentation = presentations.find(
+    (presentation) => presentation._id == presID,
+  );
+  if (presentation == null) {
     res.status(404).send("<h1>Presentation not found</h1>");
+    return
   }
-  const html = render("presentationDesc", {presentation: presentation});
+  const html = render("presentation_description", {
+    presentation: presentation,
+  });
   res.status(200).send(html);
 });
 
-app.post('/search', (req, res) => {
-  const presentationsFound = searchPresentations(req.body.search, presentations)
+app.post("/search", (req, res) => {
+  const presentationsFound = searchPresentations(
+    req.body.search,
+    presentations,
+  );
 
-  const html = render("search", { presentations: presentationsFound});
-  res.status(200).send(html)
-})
+  const html = render("search", { presentations: presentationsFound });
+  res.status(200).send(html);
+});
 
 app.listen(3000, () => {
   console.log("app listening on 3000");
