@@ -7,6 +7,13 @@
       <td>{{firstName}}</td>
       <td>{{lastName}}</td>
       <td><a href="/presentations/{{_id}}">Go to Presentation</a></td>
+      <td>
+        {{#if favorited}}
+          Big Fan!
+        {{else}}
+          Not a favorite
+        {{/if}}
+      </td>
     </tr>
   {{/each}}
 </tbody>
