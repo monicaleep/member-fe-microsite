@@ -64,8 +64,7 @@ app.get("/", (_, res) => {
 });
 
 app.get("/presentations", (_, res) => {
-  const html = render("presentations", { presentations });
-  res.status(200).send(html);
+  res.render("presentations", { presentations });
 });
 
 app.get("/presentations/:id", (req, res) => {
@@ -75,13 +74,12 @@ app.get("/presentations/:id", (req, res) => {
     (presentation) => presentation._id == presID,
   );
   if (presentation == null) {
-    res.status(404).send("<h1>Presentation not found</h1>");
+    res.render('404', {message:"Presentation not found"})
     return
   }
-  const html = render("presentation_description", {
+  res.render("presentation_description", {
     presentation: presentation,
   });
-  res.status(200).send(html);
 });
 
 app.post("/search", (req, res) => {
@@ -90,8 +88,7 @@ app.post("/search", (req, res) => {
     presentations,
   );
 
-  const html = render("search", { presentations: presentationsFound });
-  res.status(200).send(html);
+  res.render("search", { presentations: presentationsFound , layout: false});
 });
 
 app.listen(3000, () => {
