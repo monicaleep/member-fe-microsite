@@ -68,12 +68,18 @@ app.get("/presentations/:id", (req, res) => {
 
 
 app.post("/search", (req, res) => {
+  const favorites = req.session.favorite_presentations
   const presentationsFound = searchPresentations(
     req.body.search,
     presentations,
   );
+  // move into utility method?
+  const presentationsWithFavorites = presentationsFound .map((p) => ({
+    ...p,
+    favorited: favorites.includes(p._id),
+  }));
 
-  res.render("search", { presentations: presentationsFound, layout: false });
+  res.render("search", { presentations: presentationsWithFavorites , layout: false });
 });
 
 app.put("/presentations/favorite/:id", (req, res) => {
