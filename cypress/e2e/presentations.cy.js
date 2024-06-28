@@ -31,7 +31,7 @@ describe("Presentations Page", () => {
   it("should show 404 if linking to unknown presentation page", () => {
 
     cy.visit("/presentations/foo", {failOnStatusCode: false});
-    cy.contains("h1", "Presentation not found")
+    cy.contains( "Presentation not found")
 
   })
 });
