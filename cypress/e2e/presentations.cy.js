@@ -1,4 +1,7 @@
 describe("Presentations Page", () => {
+  const presentationId = "7415a027-865c-4112-aff4-f617cc3093d2";
+  const presentationDetailUrl = `presentations/${presentationId}`;
+  const presentationFavoriteToggle = `favorite-${presentationId}`;
   it("should load presentations and allow for search", () => {
     cy.visit("/presentations");
 
@@ -21,10 +24,7 @@ describe("Presentations Page", () => {
     cy.getByTestId("presentation-search").type("transform customized");
     cy.getByTestId("presentation-row").should("have.length", 1);
     cy.get("a").click();
-    cy.url().should(
-      "include",
-      "/presentations/7415a027-865c-4112-aff4-f617cc3093d2",
-    );
+    cy.url().should("include", presentationDetailUrl);
     cy.contains("transform customized e-markets");
   });
 
@@ -36,55 +36,39 @@ describe("Presentations Page", () => {
   it("should allow for favoriting/unfavoriting", () => {
     cy.visit("/presentations");
     // initial state is unfavorited
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♡",
-    );
+    cy.getByTestId(presentationFavoriteToggle).contains("♡");
     // toggle to be favorited
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").click();
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♥️",
-    );
+    cy.getByTestId(presentationFavoriteToggle).click();
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
 
     // toggle off
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").click();
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♡",
-    );
+    cy.getByTestId(presentationFavoriteToggle).click();
+    cy.getByTestId(presentationFavoriteToggle).contains("♡");
   });
 
   it("should allow for favoriting on list page, favorite persists on detail page", () => {
     cy.visit("/presentations");
     // initial state is unfavorited
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♡",
-    );
+    cy.getByTestId(presentationFavoriteToggle).contains("♡");
     // toggle to be favorited
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").click();
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♥️",
-    );
+    cy.getByTestId(presentationFavoriteToggle).click();
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
 
     // toggle off
-    cy.visit("/presentations/7415a027-865c-4112-aff4-f617cc3093d2");
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♥️",
-    );
+    cy.visit(presentationDetailUrl);
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
   });
 
   it("should allow for favoriting on detail page, favorite persists on list page", () => {
-    cy.visit("/presentations/7415a027-865c-4112-aff4-f617cc3093d2");
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♡",
-    );
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").click();
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♥️",
-    );
+    cy.visit(presentationDetailUrl);
+    cy.getByTestId(presentationFavoriteToggle).contains("♡");
+    cy.getByTestId(presentationFavoriteToggle).click();
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
 
     // toggle off
     cy.visit("/presentations");
-    cy.getByTestId("favorite-7415a027-865c-4112-aff4-f617cc3093d2").contains(
-      "♥️",
-    );
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
   });
+
+  it("should take favorited ids from session cookie", () => { });
 });
