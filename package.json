@@ -6,7 +6,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch src/server.js",
     "dev": "nodemon -e hbs,js -V src/server.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
