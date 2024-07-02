@@ -18,6 +18,7 @@ app.use((req, _, next) => {
 
   next();
 });
+app.use("/public", express.static(path.resolve(__dirname, 'public')));
 
 app.get("/", (_, res) => {
   res.render("index", { test: "hi there" });
