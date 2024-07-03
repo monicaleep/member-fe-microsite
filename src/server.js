@@ -18,13 +18,17 @@ app.use((req, _, next) => {
 
   next();
 });
+app.use("/public", express.static(path.resolve(__dirname, 'public')));
 
 app.get("/", (_, res) => {
   res.render("index", { test: "hi there" });
 });
 
 app.get("/presentations", (_, res) => {
-  res.render("presentations", { presentations });
+  res.render("presentations", {
+    title: "Presentations",
+    presentations,
+  });
 });
 
 app.get("/presentations/:id", (req, res) => {
@@ -37,6 +41,7 @@ app.get("/presentations/:id", (req, res) => {
     return
   }
   res.render("presentation_description", {
+    title: presentation.name,
     presentation: presentation,
   });
 });
