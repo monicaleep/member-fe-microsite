@@ -20,7 +20,10 @@ describe("Presentations Page", () => {
 
     cy.getByTestId("presentation-search").type("transform customized");
     cy.getByTestId("presentation-row").should("have.length", 1);
-    cy.get("a").click();
+    cy.getByTestId("presentation-row").within(()=>{
+      cy.get('a').click()
+    })
+
     cy.url().should(
       "include",
       "/presentations/7415a027-865c-4112-aff4-f617cc3093d2",
