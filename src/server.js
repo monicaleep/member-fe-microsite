@@ -37,7 +37,7 @@ app.use((req, _, next) => {
 
   next();
 });
-app.use("/public", express.static(path.resolve(__dirname, 'public')));
+app.use("/public", express.static(path.resolve(__dirname, "public")));
 
 app.get("/", (_, res) => {
   res.render("index", { test: "hi there" });
@@ -46,12 +46,14 @@ app.get("/", (_, res) => {
 app.get("/presentations", (req, res) => {
   const favorites = req.session.favorite_presentations;
   const presentationsWithFavorites = mergePresentationsWithFavorites(
-    title: "Presentations",
     presentations,
     favorites,
   );
 
-  res.render("presentations", { presentations: presentationsWithFavorites });
+  res.render("presentations", {
+    title: "Presentations",
+    presentations: presentationsWithFavorites,
+  });
 });
 
 app.get("/presentations/:id", (req, res) => {
@@ -66,8 +68,8 @@ app.get("/presentations/:id", (req, res) => {
   }
   const favorited = favorites.includes(presentation._id);
   res.render("presentation_description", {
-     title: presentation.name,
-      presentation: { ...presentation, favorited },
+    title: presentation.name,
+    presentation: { ...presentation, favorited },
   });
 });
 
@@ -77,7 +79,10 @@ app.post("/search", (req, res) => {
     req.body.search,
     presentations,
   );
-  const presentationsWithFavorites = mergePresentationsWithFavorites(presentationsFound, favorites)
+  const presentationsWithFavorites = mergePresentationsWithFavorites(
+    presentationsFound,
+    favorites,
+  );
   res.render("search", {
     presentations: presentationsWithFavorites,
     layout: false,
