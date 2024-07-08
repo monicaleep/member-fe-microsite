@@ -23,7 +23,9 @@ describe("Presentations Page", () => {
 
     cy.getByTestId("presentation-search").type("transform customized");
     cy.getByTestId("presentation-row").should("have.length", 1);
-    cy.get("a").click();
+    cy.getByTestId("presentation-row").within(()=>{
+      cy.get('a').click()
+    })
     cy.url().should("include", presentationDetailUrl);
     cy.contains("transform customized e-markets");
   });
