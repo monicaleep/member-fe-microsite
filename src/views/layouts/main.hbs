@@ -1,0 +1,33 @@
+<html lang="en" dir="ltr">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <title>
+      {{#if title}}
+        {{title}} - Frontend Forward 2024
+      {{^}}
+        Frontend Forward 2024
+      {{/if}}
+    </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="view-transition" content="same-origin" />
+    <script src="https://unpkg.com/htmx.org@2.0.0"></script>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav hx-boost="true">
+        <ul>
+          <li><a href="/" hx-swap="innerHTML transition:true" hx-target="body">Home</a></li>
+          <li><a href="/presentations" hx-swap="innerHTML transition:true" hx-target="body">Presentations</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {{{body}}}
+    </main>
+  </body>
+</html>

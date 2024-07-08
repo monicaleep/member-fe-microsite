@@ -1,0 +1,12 @@
+<span
+  data-testId="favorite-{{id}}"
+  hx-trigger="click"
+  hx-put="/presentations/favorite/{{id}}"
+  hx-swap="outerHTML"
+>
+  {{#if favorited}}
+    ♥️
+  {{else}}
+    ♡
+  {{/if}}
+</span>
