@@ -40,7 +40,7 @@ app.use((req, _, next) => {
 app.use("/public", express.static(path.resolve(__dirname, "public")));
 
 app.get("/", (_, res) => {
-  res.render("index", { test: "hi there" });
+  res.render("index");
 });
 
 app.get("/presentations", (req, res) => {
