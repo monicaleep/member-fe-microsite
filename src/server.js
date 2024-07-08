@@ -40,7 +40,9 @@ app.use((req, _, next) => {
 app.use("/public", express.static(path.resolve(__dirname, "public")));
 
 app.get("/", (_, res) => {
-  res.render("index");
+  const index = new Date().getUTCHours() % presentations.length
+  const featured_presentation = presentations[index];
+  res.render("index", { featured_presentation });
 });
 
 app.get("/presentations", (req, res) => {
