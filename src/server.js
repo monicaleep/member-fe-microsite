@@ -2,6 +2,7 @@ import express from "express";
 import { engine } from "express-handlebars";
 import cookieSession from "cookie-session";
 import presentations from "./db/presentations.json" with { type: "json" };
+import fun_facts from "./db/fun_facts.json" with { type: "json" };
 import searchPresentations from "./utils/search.js";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -40,9 +41,10 @@ app.use((req, _, next) => {
 app.use("/public", express.static(path.resolve(__dirname, "public")));
 
 app.get("/", (_, res) => {
-  const index = new Date().getUTCHours() % presentations.length
-  const featured_presentation = presentations[index];
-  res.render("index", { featured_presentation });
+  const pres_index = new Date().getUTCHours() % presentations.length;
+  const featured_presentation = presentations[pres_index];
+  const fun_fact = fun_facts[Math.floor(Math.random() * fun_facts.length)];
+  res.render("index", { featured_presentation, fun_fact });
 });
 
 app.get("/presentations", (req, res) => {
