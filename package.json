@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch src/server.js",
+    "start": "node src/server.js",
     "dev": "nodemon -e hbs,js -i cypress/ -V src/server.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
@@ -14,6 +14,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=20.12.2"
+  },
   "dependencies": {
     "cookie-session": "^2.1.0",
     "express": "^4.19.2",

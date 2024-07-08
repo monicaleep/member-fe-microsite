@@ -1,0 +1,32 @@
+@view-transition {
+    navigation: auto;
+}
+@keyframes collapse {
+    from {
+        transform: rotate(0) scale(1) translateX(0) translateY(0);
+    }
+    to {
+        transform: rotate(-300deg) scale(0) translateX(-100%) translateY(100%);
+    }
+}
+@keyframes expand {
+    from {
+        clip-path: inset(50% 50% 50% 50%);
+        transform: scale(0) translateX(100%) translateY(-70%);
+        background: skyblue;
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+        transform: scale(1) translateX(0) translateY(0);
+        background: inherit;
+    }
+}
+::view-transition-old(page-transition) {
+    animation: 600ms ease-out both collapse;
+}
+::view-transition-new(page-transition) {
+    animation: 600ms ease-in both expand;
+}
+body {
+    view-transition-name: page-transition;
+}

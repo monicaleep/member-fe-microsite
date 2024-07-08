@@ -37,6 +37,7 @@ app.use((req, _, next) => {
 
   next();
 });
+app.use("/public", express.static(path.resolve(__dirname, 'public')));
 
 app.get("/", (_, res) => {
   res.render("index", { test: "hi there" });
@@ -45,6 +46,7 @@ app.get("/", (_, res) => {
 app.get("/presentations", (req, res) => {
   const favorites = req.session.favorite_presentations;
   const presentationsWithFavorites = mergePresentationsWithFavorites(
+    title: "Presentations",
     presentations,
     favorites,
   );
@@ -64,7 +66,8 @@ app.get("/presentations/:id", (req, res) => {
   }
   const favorited = favorites.includes(presentation._id);
   res.render("presentation_description", {
-    presentation: { ...presentation, favorited },
+     title: presentation.name,
+      presentation: { ...presentation, favorited },
   });
 });
 
