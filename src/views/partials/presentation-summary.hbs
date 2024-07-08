@@ -1,6 +1,6 @@
 <section>
   {{#if featured}}
-    <h2>Featured Presentation: {{presentation.name}}</h2>
+    <h2>Featured Presentation: <a href="/presentations/{{presentation._id}}">{{presentation.name}}</a></h2>
   {{^}}
     <h1>{{presentation.name}}</h1>
   {{/if}}
