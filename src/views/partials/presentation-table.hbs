@@ -7,6 +7,9 @@
       <td>{{firstName}}</td>
       <td>{{lastName}}</td>
       <td><a href="/presentations/{{_id}}">Go to Presentation</a></td>
+      <td>
+          {{> favorited_cell favorited=favorited id=_id }}
+      </td>
     </tr>
   {{/each}}
 </tbody>
