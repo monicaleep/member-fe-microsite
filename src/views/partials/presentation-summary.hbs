@@ -1,0 +1,17 @@
+<section>
+  {{#if featured}}
+    <h2>Featured Presentation: <a href="/presentations/{{presentation._id}}">{{presentation.name}}</a></h2>
+  {{^}}
+    <h1>{{presentation.name}}</h1>
+  {{/if}}
+  <img
+    src="{{presentation.avatar}}"
+    fetchpriority="high"
+    alt="{{presentation.firstName}} {{presentation.lastName}}"
+  />
+  <div>{{presentation.firstName}} {{presentation.lastName}}</div>
+  <div>{{presentation.email}}</div>
+  <div>{{presentation._id}}</div>
+  <div>{{presentation.tag}}</div>
+  {{> favorited_cell favorited=presentation.favorited id=presentation._id }}
+</section>
