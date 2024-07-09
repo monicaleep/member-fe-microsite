@@ -77,6 +77,10 @@ app.get("/presentations/:id", (req, res) => {
   });
 });
 
+app.post("/fact", (_, res)=> {
+  const fun_fact = fun_facts[Math.floor(Math.random() * fun_facts.length)];
+  res.render("fact", { fun_fact, layout: false, })
+})
 app.post("/search", (req, res) => {
   const favorites = req.session.favorite_presentations;
   const presentationsFound = searchPresentations(
