@@ -1,4 +1,4 @@
-import express from "express";
+import express, {Router} from "express";
 import { engine } from "express-handlebars";
 import cookieSession from "cookie-session";
 import presentations from "./db/presentations.json" with { type: "json" };
@@ -7,12 +7,15 @@ import searchPresentations from "./utils/search.js";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import { mergePresentationsWithFavorites } from "./utils/favorites.js";
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const url = import.meta.url
+const dirname = url ? path.dirname(fileURLToPath(url)) : `./netlify/functions/`;
+
 
 const app = express();
+const router = Router()
 app.engine(".hbs", engine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
-app.set("views", path.resolve(__dirname, "./views"));
+app.set("views", path.resolve( "src/views"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -38,16 +41,17 @@ app.use((req, _, next) => {
 
   next();
 });
-app.use("/public", express.static(path.resolve(__dirname, "public")));
+app.use("/public", express.static(path.resolve(dirname, "public")));
 
-app.get("/", (_, res) => {
+
+router.get("/", (_, res) => {
   const pres_index = new Date().getUTCHours() % presentations.length;
   const featured_presentation = presentations[pres_index];
   const fun_fact = fun_facts[Math.floor(Math.random() * fun_facts.length)];
   res.render("index", { featured_presentation, fun_fact });
 });
 
-app.get("/presentations", (req, res) => {
+router.get("/presentations", (req, res) => {
   const favorites = req.session.favorite_presentations;
   const presentationsWithFavorites = mergePresentationsWithFavorites(
     presentations,
@@ -60,7 +64,7 @@ app.get("/presentations", (req, res) => {
   });
 });
 
-app.get("/presentations/:id", (req, res) => {
+router.get("/presentations/:id", (req, res) => {
   const presID = req.params.id;
   const favorites = req.session.favorite_presentations;
   const presentation = presentations.find(
@@ -77,11 +81,11 @@ app.get("/presentations/:id", (req, res) => {
   });
 });
 
-app.post("/fact", (_, res)=> {
+router.post("/fact", (_, res)=> {
   const fun_fact = fun_facts[Math.floor(Math.random() * fun_facts.length)];
   res.render("fact", { fun_fact, layout: false, })
 })
-app.post("/search", (req, res) => {
+router.post("/search", (req, res) => {
   const favorites = req.session.favorite_presentations;
   const presentationsFound = searchPresentations(
     req.body.search,
@@ -97,7 +101,7 @@ app.post("/search", (req, res) => {
   });
 });
 
-app.put("/presentations/favorite/:id", (req, res) => {
+router.put("/presentations/favorite/:id", (req, res) => {
   const id = req.params.id;
   let favorites = req.session.favorite_presentations;
   // what if id doesn't exist???
@@ -116,6 +120,10 @@ app.put("/presentations/favorite/:id", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("app listening on 3000");
-});
+router.get('/hi', (req,res)=>{
+  res.send('hi')
+})
+
+export {app, router}
+
+

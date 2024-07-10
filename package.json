@@ -3,11 +3,11 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Microsite for Member FE Conference July 2024",
-  "main": "index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js",
-    "dev": "nodemon -e hbs,js -i cypress/ -V src/server.js",
+    "start": "node src/index.mjs",
+    "dev": "nodemon -e hbs,js -i cypress/ -V src/index.mjs",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
@@ -18,10 +18,12 @@
     "node": ">=20.12.2"
   },
   "dependencies": {
+    "@netlify/functions": "^2.8.1",
     "cookie-session": "^2.1.0",
     "express": "^4.19.2",
     "express-handlebars": "^7.1.3",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
