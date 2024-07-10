@@ -119,3 +119,16 @@ app.put("/presentations/favorite/:id", (req, res) => {
 app.listen(3000, () => {
   console.log("app listening on 3000");
 });
+
+app.get("/layouttest", (req, res) => {
+  const favorites = req.session.favorite_presentations;
+  const presentationsWithFavorites = mergePresentationsWithFavorites(
+    presentations,
+    favorites,
+  );
+
+  res.render("layout_testing", {
+    title: "layout testing",
+    presentations: presentationsWithFavorites,
+  });
+});

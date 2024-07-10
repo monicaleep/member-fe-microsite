@@ -1,20 +1,21 @@
 <head><link rel="stylesheet" type="text/css" href="/public/presentation-style.scss" /></head>
 <body>
     {{#each presentations}}
-    <div class="container">
+    <a class="container" href="/presentations/{{_id}}">
+    <div class="container" >
         <div class="homepage">
             <ul>
-                <li><h2><a href="/presentations/{{_id}}">{{ name }}</a></h2></li>
-                <li><h4>{{ firstName }} {{ lastName }}</h4></li>
-                <li><p>{{ email }}</p></li>
+                <li>{{ name }}</li>
+                <li>{{ firstName }} {{ lastName }}</li>
+                <li>{{ email }}</li>
                 <li>{{ tag }}</li>
             </ul>
         </div>
 
         <div class="image">
-            <img src="{{presentation.avatar}}" fetchpriority="high" alt="{{presentation.firstName}} {{presentation.lastName}}" />
+            <img src="{{avatar}}" fetchpriority="high" alt="{{firstName}} {{lastName}}" />
         </div>
-        
     </div>
+    </a>
     {{/each}}
 </body>
