@@ -5,10 +5,10 @@ import presentations from "./db/presentations.json" with { type: "json" };
 import fun_facts from "./db/fun_facts.json" with { type: "json" };
 import searchPresentations from "./utils/search.js";
 import * as path from "node:path";
-import { fileURLToPath } from "node:url";
+// import { fileURLToPath } from "node:url";
 import { mergePresentationsWithFavorites } from "./utils/favorites.js";
-const url = import.meta.url
-const dirname = url ? path.dirname(fileURLToPath(url)) : `./netlify/functions/`;
+// const url = import.meta.url
+// const dirname = url ? path.dirname(fileURLToPath(url)) : `./netlify/functions/`;
 
 
 const app = express();
@@ -41,7 +41,7 @@ app.use((req, _, next) => {
 
   next();
 });
-app.use("/public", express.static(path.resolve(dirname, "public")));
+app.use("/public", express.static(path.resolve("src/public")));
 
 
 router.get("/", (_, res) => {
