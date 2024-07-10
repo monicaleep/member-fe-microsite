@@ -1,46 +1,33 @@
-body{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
-    line-height: 1.4;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 10px;
-    word-wrap: break-word;
-    color: #363636;
-    color: var(--text-main);
-    background: #fff;
-    background: var(--background-body);
-    text-rendering: optimizeLegibility;
-}
+@import url("https://cdn.jsdelivr.net/npm/water.css@2/out/water.css");
 
 div.container{
     display: grid;
     grid-template-rows: auto;
 	grid-template-columns: 60% 40%;
 	gap: 10%;
+    align-items: center;
     overflow: hidden;
-    background: #b3c6ff;
-    border-radius: 30px;
+    background: #0096bfab;
+    border-radius: 10px;
     margin: 5% 7%; //outside box
-    padding: 10%;
-    padding-bottom: 3%; //inside box
+    padding: 400px 400px;
+
+    img{ //this moves manually. cannot dynamically change to size
+        display: block;
+        align-items: center;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+    }
 }
 
-// div.homepage{
-
-// }
+a.container{
+    text-decoration: none; //remove underline
+}
 
 div.homepage ul{
+    padding-left: 20%;
     list-style-type: none; //remove dot
     display: inline;
-}
-div.homepage a{
-    text-decoration: none; //remove underline
-    color: #363636;
-}
-div.image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-    height: 40%;
 }
