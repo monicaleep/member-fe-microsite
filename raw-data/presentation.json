@@ -1,0 +1,192 @@
+[
+  {
+    "id": "1",
+    "day": "2024/7/16",
+    "time_slot": "9:30am - 9:35am",
+    "start_time": "9:30am",
+    "topic": "Opening Ceremony",
+    "presenter": "David S",
+    "duration": "5",
+    "image": "/images/presenters/david s.jpeg"
+  },
+  {
+    "id": "2",
+    "day": "2024/7/16",
+    "time_slot": "9:35am - 10:05am",
+    "start_time": "9:35am",
+    "topic": "NextJS PPR",
+    "presenter": "David C",
+    "duration": "40",
+    "image": "/images/presenters/david c.jpeg"
+  },
+  {
+    "id": "3",
+    "day": "2024/7/16",
+    "time_slot": "10:05am - 10:45am",
+    "start_time": "10:05am",
+    "topic": "Get out of your comfort zone",
+    "presenter": "Mike J",
+    "duration": "40",
+    "image": "/images/presenters/mike j.jpeg"
+  },
+  {
+    "id": "4",
+    "day": "2024/7/16",
+    "time_slot": "10:45am - 11:00am",
+    "start_time": "10:45am",
+    "topic": "Purpose/value of PR reviews & best practices",
+    "presenter": "Monica P",
+    "duration": "15",
+    "image": "/images/presenters/monica p.png"
+  },
+  {
+    "id": "5",
+    "day": "2024/7/16",
+    "time_slot": "11:05am - 12:00pm",
+    "start_time": "11:05am",
+    "topic": "How to work in cross-functional teams and how to communicate with our non-technical partners",
+    "presenter": "Sari/Ashley",
+    "duration": "55",
+    "image": "/images/presenters/sariashley.jpeg"
+  },
+  {
+    "id": "6",
+    "day": "2024/7/16",
+    "time_slot": "1:00pm - 1:30pm",
+    "start_time": "1:00pm",
+    "topic": "A memo on memoization",
+    "presenter": "Josh G",
+    "duration": "30",
+    "image": "/images/presenters/josh g.jpeg"
+  },
+  {
+    "id": "7",
+    "day": "2024/7/16",
+    "time_slot": "1:30pm - 2:00pm",
+    "start_time": "1:30pm",
+    "topic": "Living with the Cookie Monster",
+    "presenter": "David S",
+    "duration": "30",
+    "image": "/images/presenters/david s.jpeg"
+  },
+  {
+    "id": "8",
+    "day": "2024/7/16",
+    "time_slot": "2:00pm - 2:20pm",
+    "start_time": "2:00pm",
+    "topic": "Clickup tips and tricks",
+    "presenter": "Ian S",
+    "duration": "20",
+    "image": "/images/presenters/ian s.jpeg"
+  },
+  {
+    "id": "9",
+    "day": "2024/7/16",
+    "time_slot": "2:25pm - 2:55pm",
+    "start_time": "2:25pm",
+    "topic": "AI / LLM",
+    "presenter": "Ross",
+    "duration": "30",
+    "image": "/images/presenters/ross w.png"
+  },
+  {
+    "id": "10",
+    "day": "2024/7/16",
+    "time_slot": "2:55pm - 3:25pm",
+    "start_time": "2:55pm",
+    "topic": "Monorepos",
+    "presenter": "Chris F",
+    "duration": "30",
+    "image": "/images/presenters/chris f.png"
+  },
+  {
+    "id": "11",
+    "day": "2024/7/16",
+    "time_slot": "3:25pm - 3:55pm",
+    "start_time": "3:25pm",
+    "topic": "Testing Effectively",
+    "presenter": "Sam",
+    "duration": "30",
+    "image": "/images/presenters/sam.jpeg"
+  },
+  {
+    "id": "12",
+    "day": "2024/7/16",
+    "time_slot": "4:00pm - 4:20pm",
+    "start_time": "4:00pm",
+    "topic": "The Presentation on Presentations (It's about presentations)",
+    "presenter": "Jcobb",
+    "duration": "20",
+    "image": "/images/presenters/james c.png"
+  },
+  {
+    "id": "13",
+    "day": "2024/7/16",
+    "time_slot": "4:20pm - 4:40pm",
+    "start_time": "4:20pm",
+    "topic": "Notetaking & Organization",
+    "presenter": "Marquet",
+    "duration": "20",
+    "image": "/images/presenters/marquet r.jpeg"
+  },
+  {
+    "id": "14",
+    "day": "2024/7/16",
+    "time_slot": "4:40pm - 5:10pm",
+    "start_time": "4:40pm",
+    "topic": "Differences between App and Web",
+    "presenter": "Rikesh",
+    "duration": "30",
+    "image": "/images/presenters/rikesh k.jpeg"
+  },
+  {
+    "id": "15",
+    "day": "2024/7/17",
+    "time_slot": "9:30am - 9:35am",
+    "start_time": "9:30am",
+    "topic": "Checkin",
+    "presenter": "David S",
+    "duration": "5",
+    "image": "/images/presenters/david s.jpeg"
+  },
+  {
+    "id": "16",
+    "day": "2024/7/17",
+    "time_slot": "9:35am - 10:15am",
+    "start_time": "9:35am",
+    "topic": "Dissect the Ordinary: A deep-dive on barcodes",
+    "presenter": "David S",
+    "duration": "40",
+    "image": "/images/presenters/david s.jpeg"
+  },
+  {
+    "id": "17",
+    "day": "2024/7/17",
+    "time_slot": "10:15am - 10:55am",
+    "start_time": "10:15am",
+    "topic": "Stop using your mouse",
+    "presenter": "Mike J",
+    "duration": "40",
+    "image": "/images/presenters/mike j.jpeg"
+  },
+  {
+    "id": "18",
+    "day": "2024/7/17",
+    "time_slot": "11:00am - 11:20am",
+    "start_time": "11:00am",
+    "topic": "HTMX",
+    "presenter": "Monica P",
+    "duration": "20",
+    "image": "/images/presenters/monica p.png"
+  },
+  {
+    "id": "19",
+    "day": "2024/7/17",
+    "time_slot": "11:20am - 12:10pm",
+    "start_time": "11:20am",
+    "topic": "Effective communication + Advocating for yourself",
+    "presenter": "Sari/Ashley",
+    "duration": "50",
+    "image": "/images/presenters/sariashley.jpeg"
+  }
+]
