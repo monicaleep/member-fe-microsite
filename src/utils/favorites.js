@@ -4,3 +4,7 @@ export function mergePresentationsWithFavorites(presentations, favoriteIds){
     favorited: favoriteIds.includes(p._id),
   }));
 }
+
+export function getFavoritePresentations(presentations, favoriteIds){
+  return mergePresentationsWithFavorites(presentations, favoriteIds).filter(presentation => presentation.favorited)
+}
