@@ -1,6 +1,6 @@
 <section>
   {{#if featured}}
-    <h2>Featured Presentation: <a href="/presentations/{{presentation._id}}">{{presentation.name}}</a></h2>
+    <h2>Featured Presentation: <a href="/presentations/{{presentation.id}}">{{presentation.name}}</a></h2>
   {{^}}
     <h1>{{presentation.name}}</h1>
   {{/if}}
@@ -11,7 +11,7 @@
   />
   <div>{{presentation.firstName}} {{presentation.lastName}}</div>
   <div>{{presentation.email}}</div>
-  <div>{{presentation._id}}</div>
+  <div>{{presentation.id}}</div>
   <div>{{presentation.tag}}</div>
-  {{> favorited_cell favorited=presentation.favorited id=presentation._id }}
+  {{> favorited_cell favorited=presentation.favorited id=presentation.id }}
 </section>
