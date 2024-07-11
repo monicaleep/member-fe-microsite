@@ -12,7 +12,7 @@ describe("Presentations Page", () => {
     cy.getByTestId("presentation-search").type("transform customized");
     cy.getByTestId("presentation-row").should("have.length", 1);
 
-    // allow for searching by email
+    // allow for searching by email -- this will break
     cy.getByTestId("presentation-search").clear();
     cy.getByTestId("presentation-search").type("gmail");
     cy.getByTestId("presentation-row").should("have.length", 6);
