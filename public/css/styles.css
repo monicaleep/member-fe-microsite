@@ -30,3 +30,23 @@
 body {
     view-transition-name: page-transition;
 }
+
+ul.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0096bfab;
+}
+
+ul.navigation li {
+    float: left;
+}
+
+ul.navigation li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
