@@ -1,8 +1,8 @@
 import express from "express";
 import { engine } from "express-handlebars";
 import cookieSession from "cookie-session";
-import presentations from "./db/presentations.json" with { type: "json" };
-import fun_facts from "./db/fun_facts.json" with { type: "json" };
+import presentations from "./db/presentations.json" assert { type: "json" };
+import fun_facts from "./db/fun_facts.json" assert { type: "json" };
 import searchPresentations from "./utils/search.js";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";

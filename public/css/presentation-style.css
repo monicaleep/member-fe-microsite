@@ -9,25 +9,26 @@ div.container{
     overflow: hidden;
     background: #0096bfab;
     border-radius: 10px;
-    margin: 5% 7%; //outside box
-    padding: 400px 400px;
-
-    img{ //this moves manually. cannot dynamically change to size
-        display: block;
-        align-items: center;
-        border-radius: 50%;
-        overflow: hidden;
-        width: 100px;
-        height: 100px;
-    }
+    margin: 5% 7%; /*outside box*/
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+div.container img{ /*this moves manually. cannot dynamically change to size*/
+    display: block;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
 }
 
 a.container{
-    text-decoration: none; //remove underline
+    text-decoration: none; /*remove underline*/
 }
 
 div.homepage ul{
     padding-left: 20%;
-    list-style-type: none; //remove dot
+    list-style-type: none; /*remove dot*/
     display: inline;
 }
