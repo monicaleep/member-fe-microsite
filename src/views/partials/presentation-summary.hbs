@@ -1,13 +1,13 @@
 <section>
   {{#if featured}}
-    <h2>Featured Presentation: <a href="/presentations/{{presentation.id}}">{{presentation.name}}</a></h2>
+    <h2>Featured Presentation: <a href="/presentations/{{presentation.id}}">{{presentation.topic}}</a></h2>
   {{^}}
-    <h1>{{presentation.name}}</h1>
+    <h1>{{presentation.topic}}</h1>
   {{/if}}
   <img
     src="{{presentation.image}}"
     fetchpriority="high"
-    alt="{{presentation.name}}"
+    alt="{{presentation.presenter}}"
   />
   <div>{{presentation.presenter}} </div>
   <div>{{presentation.id}}</div>

@@ -73,7 +73,7 @@ app.get("/presentations/:id", (req, res) => {
   }
   const favorited = favorites.includes(presentation.id);
   res.render("presentation_description", {
-    title: presentation.name,
+    title: presentation.topic,
     presentation: { ...presentation, favorited },
   });
 });

@@ -1,6 +1,6 @@
 const searchPresentations = (query, presentations) => {
   return presentations.filter((pres) => {
-    const searchableFields = [pres.name, pres.presenter];
+    const searchableFields = [pres.topic, pres.presenter];
     return searchableFields.some((field) =>
       field.toLowerCase().includes(query.toLowerCase()),
     );
