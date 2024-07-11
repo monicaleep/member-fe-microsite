@@ -1,1 +1,29 @@
 /* add your classes here, specific to the view your styling. */ 
+div.heading{
+    display: flex;
+    justify-content: center;
+}
+div.heading h1, h2{
+    text-align: center;
+}
+
+div.summary{
+    display: grid;
+    grid-template-rows: auto;
+	grid-template-columns: 40% 60%;
+	gap: 10%;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    /* background: #0096bfab; */
+    text-align: center;
+    padding: 5%;
+}
+div.summary img{
+    /* border-color: #0096bfab;
+    border: 10px; */
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    display: block;
+}
