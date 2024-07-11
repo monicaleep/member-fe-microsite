@@ -1,20 +1,20 @@
-id,day,time_slot,start_time,topic,presenter,duration,image
-1,2024/7/16,9:30am - 9:35am,9:30am,Opening Ceremony,David S,5,/images/presenters/david s.jpeg
-2,2024/7/16,9:35am - 10:05am,9:35am,NextJS PPR,David C,40,/images/presenters/david c.jpeg
-3,2024/7/16,10:05am - 10:45am,10:05am,Get out of your comfort zone,Mike J,40,/images/presenters/mike j.jpeg
-4,2024/7/16,10:45am - 11:00am,10:45am,Purpose/value of PR reviews & best practices,Monica P,15,/images/presenters/monica p.png
-5,2024/7/16,11:05am - 12:00pm,11:05am,How to work in cross-functional teams and how to communicate with our non-technical partners,Sari/Ashley,55,/images/presenters/sariashley.jpeg
-6,2024/7/16,1:00pm - 1:30pm,1:00pm,A memo on memoization,Josh G,30,/images/presenters/josh g.jpeg
-7,2024/7/16,1:30pm - 2:00pm,1:30pm,Living with the Cookie Monster,David S,30,/images/presenters/david s.jpeg
-8,2024/7/16,2:00pm - 2:20pm,2:00pm,Clickup tips and tricks,Ian S,20,/images/presenters/ian s.jpeg
-9,2024/7/16,2:25pm - 2:55pm,2:25pm,AI / LLM,Ross,30,/images/presenters/ross w.png
-10,2024/7/16,2:55pm - 3:25pm,2:55pm,Monorepos,Chris F,30,/images/presenters/chris f.png
-11,2024/7/16,3:25pm - 3:55pm,3:25pm,Testing Effectively,Sam,30,/images/presenters/sam.jpeg
-12,2024/7/16,4:00pm - 4:20pm,4:00pm,The Presentation on Presentations (It's about presentations),Jcobb,20,/images/presenters/james c.png
-13,2024/7/16,4:20pm - 4:40pm,4:20pm,Notetaking & Organization,Marquet,20,/images/presenters/marquet r.jpeg
-14,2024/7/16,4:40pm - 5:10pm,4:40pm,Differences between App and Web,Rikesh,30,/images/presenters/rikesh k.jpeg
-15,2024/7/17,9:30am - 9:35am,9:30am,Checkin,David S,5,/images/presenters/david s.jpeg
-16,2024/7/17,9:35am - 10:15am,9:35am,Dissect the Ordinary: A deep-dive on barcodes,David S,40,/images/presenters/david s.jpeg
-17,2024/7/17,10:15am - 10:55am,10:15am,Stop using your mouse,Mike J,40,/images/presenters/mike j.jpeg
-18,2024/7/17,11:00am - 11:20am,11:00am,HTMX,Monica P,20,/images/presenters/monica p.png
-19,2024/7/17,11:20am - 12:10pm,11:20am,Effective communication + Advocating for yourself,Sari/Ashley,50,/images/presenters/sariashley.jpeg
+id,day,time_slot,start_time,topic,presenter,duration,image,tag
+1,2024/7/16,9:30am - 9:35am,9:30am,Opening Ceremony,David S,5,/images/presenters/david s.jpeg,misc
+2,2024/7/16,9:35am - 10:05am,9:35am,NextJS PPR,David C,40,/images/presenters/david c.jpeg,technology
+3,2024/7/16,10:05am - 10:45am,10:05am,Get out of your comfort zone,Mike J,40,/images/presenters/mike j.jpeg,soft skills
+4,2024/7/16,10:45am - 11:00am,10:45am,Purpose/value of PR reviews & best practices,Monica P,15,/images/presenters/monica p.png,soft skills
+5,2024/7/16,11:05am - 12:00pm,11:05am,How to work in cross-functional teams and how to communicate with our non-technical partners,Sari/Ashley,55,/images/presenters/sariashley.jpeg,soft skills
+6,2024/7/16,1:00pm - 1:30pm,1:00pm,A memo on memoization,Josh G,30,/images/presenters/josh g.jpeg,technology
+7,2024/7/16,1:30pm - 2:00pm,1:30pm,Living with the Cookie Monster,David S,30,/images/presenters/david s.jpeg,technology
+8,2024/7/16,2:00pm - 2:20pm,2:00pm,Clickup tips and tricks,Ian S,20,/images/presenters/ian s.jpeg,soft skills
+9,2024/7/16,2:25pm - 2:55pm,2:25pm,AI / LLM,Ross,30,/images/presenters/ross w.png,technology
+10,2024/7/16,2:55pm - 3:25pm,2:55pm,Monorepos,Chris F,30,/images/presenters/chris f.png,technology
+11,2024/7/16,3:25pm - 3:55pm,3:25pm,Testing Effectively,Sam,30,/images/presenters/sam.jpeg,technology
+12,2024/7/16,4:00pm - 4:20pm,4:00pm,The Presentation on Presentations (It's about presentations),Jcobb,20,/images/presenters/james c.png,soft skills
+13,2024/7/16,4:20pm - 4:40pm,4:20pm,Notetaking & Organization,Marquet,20,/images/presenters/marquet r.jpeg,soft skills
+14,2024/7/16,4:40pm - 5:10pm,4:40pm,Differences between App and Web,Rikesh,30,/images/presenters/rikesh k.jpeg,technology
+15,2024/7/17,9:30am - 9:35am,9:30am,Checkin,David S,5,/images/presenters/david s.jpeg,misc
+16,2024/7/17,9:35am - 10:15am,9:35am,Dissect the Ordinary: A deep-dive on barcodes,David S,40,/images/presenters/david s.jpeg,technology
+17,2024/7/17,10:15am - 10:55am,10:15am,Stop using your mouse,Mike J,40,/images/presenters/mike j.jpeg,soft skills
+18,2024/7/17,11:00am - 11:20am,11:00am,HTMX,Monica P,20,/images/presenters/monica p.png,technology
+19,2024/7/17,11:20am - 12:10pm,11:20am,Effective communication + Advocating for yourself,Sari/Ashley,50,/images/presenters/sariashley.jpeg,soft skills

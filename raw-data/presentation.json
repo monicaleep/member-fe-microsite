@@ -7,7 +7,8 @@
     "topic": "Opening Ceremony",
     "presenter": "David S",
     "duration": "5",
-    "image": "/images/presenters/david s.jpeg"
+    "image": "/images/presenters/david s.jpeg",
+    "tag": "misc"
   },
   {
     "id": "2",
@@ -17,7 +18,8 @@
     "topic": "NextJS PPR",
     "presenter": "David C",
     "duration": "40",
-    "image": "/images/presenters/david c.jpeg"
+    "image": "/images/presenters/david c.jpeg",
+    "tag": "technology"
   },
   {
     "id": "3",
@@ -27,7 +29,8 @@
     "topic": "Get out of your comfort zone",
     "presenter": "Mike J",
     "duration": "40",
-    "image": "/images/presenters/mike j.jpeg"
+    "image": "/images/presenters/mike j.jpeg",
+    "tag": "soft skills"
   },
   {
     "id": "4",
@@ -37,7 +40,8 @@
     "topic": "Purpose/value of PR reviews & best practices",
     "presenter": "Monica P",
     "duration": "15",
-    "image": "/images/presenters/monica p.png"
+    "image": "/images/presenters/monica p.png",
+    "tag": "soft skills"
   },
   {
     "id": "5",
@@ -47,7 +51,8 @@
     "topic": "How to work in cross-functional teams and how to communicate with our non-technical partners",
     "presenter": "Sari/Ashley",
     "duration": "55",
-    "image": "/images/presenters/sariashley.jpeg"
+    "image": "/images/presenters/sariashley.jpeg",
+    "tag": "soft skills"
   },
   {
     "id": "6",
@@ -57,7 +62,8 @@
     "topic": "A memo on memoization",
     "presenter": "Josh G",
     "duration": "30",
-    "image": "/images/presenters/josh g.jpeg"
+    "image": "/images/presenters/josh g.jpeg",
+    "tag": "technology"
   },
   {
     "id": "7",
@@ -67,7 +73,8 @@
     "topic": "Living with the Cookie Monster",
     "presenter": "David S",
     "duration": "30",
-    "image": "/images/presenters/david s.jpeg"
+    "image": "/images/presenters/david s.jpeg",
+    "tag": "technology"
   },
   {
     "id": "8",
@@ -77,7 +84,8 @@
     "topic": "Clickup tips and tricks",
     "presenter": "Ian S",
     "duration": "20",
-    "image": "/images/presenters/ian s.jpeg"
+    "image": "/images/presenters/ian s.jpeg",
+    "tag": "soft skills"
   },
   {
     "id": "9",
@@ -87,7 +95,8 @@
     "topic": "AI / LLM",
     "presenter": "Ross",
     "duration": "30",
-    "image": "/images/presenters/ross w.png"
+    "image": "/images/presenters/ross w.png",
+    "tag": "technology"
   },
   {
     "id": "10",
@@ -97,7 +106,8 @@
     "topic": "Monorepos",
     "presenter": "Chris F",
     "duration": "30",
-    "image": "/images/presenters/chris f.png"
+    "image": "/images/presenters/chris f.png",
+    "tag": "technology"
   },
   {
     "id": "11",
@@ -107,7 +117,8 @@
     "topic": "Testing Effectively",
     "presenter": "Sam",
     "duration": "30",
-    "image": "/images/presenters/sam.jpeg"
+    "image": "/images/presenters/sam.jpeg",
+    "tag": "technology"
   },
   {
     "id": "12",
@@ -117,7 +128,8 @@
     "topic": "The Presentation on Presentations (It's about presentations)",
     "presenter": "Jcobb",
     "duration": "20",
-    "image": "/images/presenters/james c.png"
+    "image": "/images/presenters/james c.png",
+    "tag": "soft skills"
   },
   {
     "id": "13",
@@ -127,7 +139,8 @@
     "topic": "Notetaking & Organization",
     "presenter": "Marquet",
     "duration": "20",
-    "image": "/images/presenters/marquet r.jpeg"
+    "image": "/images/presenters/marquet r.jpeg",
+    "tag": "soft skills"
   },
   {
     "id": "14",
@@ -137,7 +150,8 @@
     "topic": "Differences between App and Web",
     "presenter": "Rikesh",
     "duration": "30",
-    "image": "/images/presenters/rikesh k.jpeg"
+    "image": "/images/presenters/rikesh k.jpeg",
+    "tag": "technology"
   },
   {
     "id": "15",
@@ -147,7 +161,8 @@
     "topic": "Checkin",
     "presenter": "David S",
     "duration": "5",
-    "image": "/images/presenters/david s.jpeg"
+    "image": "/images/presenters/david s.jpeg",
+    "tag": "misc"
   },
   {
     "id": "16",
@@ -157,7 +172,8 @@
     "topic": "Dissect the Ordinary: A deep-dive on barcodes",
     "presenter": "David S",
     "duration": "40",
-    "image": "/images/presenters/david s.jpeg"
+    "image": "/images/presenters/david s.jpeg",
+    "tag": "technology"
   },
   {
     "id": "17",
@@ -167,7 +183,8 @@
     "topic": "Stop using your mouse",
     "presenter": "Mike J",
     "duration": "40",
-    "image": "/images/presenters/mike j.jpeg"
+    "image": "/images/presenters/mike j.jpeg",
+    "tag": "soft skills"
   },
   {
     "id": "18",
@@ -177,7 +194,8 @@
     "topic": "HTMX",
     "presenter": "Monica P",
     "duration": "20",
-    "image": "/images/presenters/monica p.png"
+    "image": "/images/presenters/monica p.png",
+    "tag": "technology"
   },
   {
     "id": "19",
@@ -187,6 +205,7 @@
     "topic": "Effective communication + Advocating for yourself",
     "presenter": "Sari/Ashley",
     "duration": "50",
-    "image": "/images/presenters/sariashley.jpeg"
+    "image": "/images/presenters/sariashley.jpeg",
+    "tag": "soft skills"
   }
 ]
