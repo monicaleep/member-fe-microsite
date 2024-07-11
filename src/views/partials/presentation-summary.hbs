@@ -1,7 +1,9 @@
-<section>
+<section class="featured">
   <div class="heading">
     {{#if featured}}
-      <h2>Featured Presentation</h2>
+      <div class="featured">
+        <h2 class="blink">Featured Presentation</h2>
+      </div>
       <h1><a href="/presentations/{{presentation._id}}">{{presentation.name}}</a></h1>
     {{^}}
       <h1>{{presentation.name}}</h1>

@@ -1,2 +1,48 @@
 /* add your classes here, specific to the view your styling. */ 
-@import url("member-fe-microsite/public/css/presentation_description.css");
+/* @import "css/presentation_description.css"; */
+section.featured{
+    background-color: #0096bfab;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+
+div.heading{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+div.heading h1, h2{
+    text-align: center;
+}
+
+div.summary{
+    display: grid;
+    grid-template-rows: auto;
+	grid-template-columns: 40% 60%;
+	gap: 10%;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    /* background: #0096bfab; */
+    text-align: center;
+    padding: 5%;
+}
+div.summary img{
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    display: block;
+}
+.blink {
+    color: white;
+    /* background-color: yellow; */
+    -webkit-animation: font-blink 800ms step-end infinite;
+    animation: font-blink 800ms step-end infinite;
+    /* -webkit-animation: bg-blink 600ms step-end infinite;
+    animation: bg-blink 600ms step-end infinite; */
+}
+@-webkit-keyframes font-blink { 50% { color: red; }}
+@keyframes font-blink { 50% { color: red; }}
+/* @-webkit-keyframes bg-blink { 50% { background-color: red; }}
+@keyframes bg-blink { 50% { background-color: red; }} */
