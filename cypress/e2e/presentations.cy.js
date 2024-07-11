@@ -1,33 +1,33 @@
 describe("Presentations Page", () => {
-  const presentationId = "7415a027-865c-4112-aff4-f617cc3093d2";
+  const presentationId = "3";
   const presentationDetailUrl = `presentations/${presentationId}`;
   const presentationFavoriteToggle = `favorite-${presentationId}`;
   it("should load presentations and allow for search", () => {
     cy.visit("/presentations");
 
     // all should load
-    cy.getByTestId("presentation-row").should("have.length", 11);
+    cy.getByTestId("presentation-row").should("have.length", 19);
 
-    // allow for searching by name
-    cy.getByTestId("presentation-search").type("transform customized");
+    // allow for searching by topic
+    cy.getByTestId("presentation-search").type("comfort");
     cy.getByTestId("presentation-row").should("have.length", 1);
 
-    // allow for searching by email -- this will break
+    // allow for searching by presenter
     cy.getByTestId("presentation-search").clear();
-    cy.getByTestId("presentation-search").type("gmail");
-    cy.getByTestId("presentation-row").should("have.length", 6);
+    cy.getByTestId("presentation-search").type("david");
+    cy.getByTestId("presentation-row").should("have.length", 5);
   });
 
   it("should link to presentation detail page", () => {
     cy.visit("/presentations");
 
-    cy.getByTestId("presentation-search").type("transform customized");
+    cy.getByTestId("presentation-search").type("comfort");
     cy.getByTestId("presentation-row").should("have.length", 1);
     cy.getByTestId("presentation-row").within(()=>{
       cy.get('a').click()
     })
     cy.url().should("include", presentationDetailUrl);
-    cy.contains("transform customized e-markets");
+    cy.contains("Get out of your comfort zone");
   });
 
   it("should show 404 if linking to unknown presentation page", () => {
@@ -68,7 +68,7 @@ describe("Presentations Page", () => {
     cy.getByTestId(presentationFavoriteToggle).click();
     cy.getByTestId(presentationFavoriteToggle).contains("♥️");
 
-    cy.getByTestId("presentation-search").type("transform customized");
+    cy.getByTestId("presentation-search").type("comfort");
     // ensure search has finished before asserting favorited row
     cy.getByTestId("presentation-row").should("have.length", 1);
     cy.getByTestId(presentationFavoriteToggle).contains("♥️");
@@ -101,8 +101,8 @@ describe("Presentations Page", () => {
   it("should take favorited ids from session cookie", () => {
     const sessionObj = {
       favorite_presentations: [
-        "326fb434-e199-427f-a523-042969cb4a86",
-        "7307b163-dcbe-4d12-ad18-43f5b7af1528",
+        "10",
+        "7",
       ],
     };
     const encodedCookie = btoa(JSON.stringify(sessionObj));
