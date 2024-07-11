@@ -116,4 +116,8 @@ describe("Presentations Page", () => {
     // other presentations should not be favorited
     cy.getByTestId(presentationFavoriteToggle).contains("♡");
   });
+  it("should display no presentations found for favorites if none exist", ()=>{
+    cy.visit("/favorites");
+    cy.getByTestId("no-favorites").contains('No presentations found')
+  })
 });
