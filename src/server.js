@@ -14,6 +14,8 @@ app.engine(".hbs", engine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 app.set("views", path.resolve(__dirname, "./views"));
 
+app.use(express.static("public"));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -38,7 +40,6 @@ app.use((req, _, next) => {
 
   next();
 });
-app.use("/public", express.static(path.resolve(__dirname, "public")));
 
 app.get("/", (_, res) => {
   const pres_index = new Date().getUTCHours() % presentations.length;
