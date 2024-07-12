@@ -65,15 +65,15 @@ app.get("/presentations/:id", (req, res) => {
   const presID = req.params.id;
   const favorites = req.session.favorite_presentations;
   const presentation = presentations.find(
-    (presentation) => presentation._id == presID,
+    (presentation) => presentation.id == presID,
   );
   if (presentation == null) {
     res.render("404", { message: "Presentation not found" });
     return;
   }
-  const favorited = favorites.includes(presentation._id);
+  const favorited = favorites.includes(presentation.id);
   res.render("presentation_description", {
-    title: presentation.name,
+    title: presentation.topic,
     presentation: { ...presentation, favorited },
   });
 });
