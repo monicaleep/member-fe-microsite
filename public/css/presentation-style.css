@@ -1,33 +1,29 @@
-
 .container {
     display: grid;
     grid-template-rows: auto;
-  	grid-template-columns: 60% 40%;
-	  gap: 10%;
+    grid-template-columns: 60% 40%;
+    gap: 10%;
     align-items: center;
     overflow: hidden;
     background: #0096bfab;
     border-radius: 10px;
-    margin: 5% 7%; //outside box
-    padding: 400px 400px;
-
+    margin: 5% 7%;
 }
 
-img { 
-        display: block;
-        align-items: center;
-        border-radius: 50%;
-        overflow: hidden;
-        width: 100px;
-        height: 100px;
+img {
+    display: block;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
 }
 
-a{
-    text-decoration: none; //remove underline
+a {
+    text-decoration: none;
 }
 
-div.homepage ul{
+div.homepage ul {
     padding-left: 20%;
-    list-style-type: none; //remove dot
-    display: inline;
+    list-style-type: none;
 }
