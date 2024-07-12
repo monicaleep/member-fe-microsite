@@ -14,20 +14,11 @@ Searching...
        hx-trigger="input changed delay:500ms, search" 
        hx-post="/search" 
        hx-target="#search-results" 
-       hx-swap="outerHTML"
-       hx-indicator="#htmx-indicator">
+       hx-indicator="#htmx-indicator"/>
 
-<table class="table">
-    <thead>
-    <tr>
-      <th>Topic</th>
-      <th>Presenter</th>
-      <th>Link</th>
-      <th>Favorite</th>
-    </tr>
-    </thead>
+<div id="search-results">
     {{> presentation-table presentations=presentations}}
+</div>
    
-</table>
  
 

@@ -1,20 +1,16 @@
-@import url("https://cdn.jsdelivr.net/npm/water.css@2/out/water.css");
-
-div.container{
+.container {
     display: grid;
     grid-template-rows: auto;
-	grid-template-columns: 60% 40%;
-	gap: 10%;
+    grid-template-columns: 60% 40%;
+    gap: 10%;
     align-items: center;
     overflow: hidden;
     background: #0096bfab;
     border-radius: 10px;
-    margin: 5% 7%; /*outside box*/
-    padding-bottom: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin: 5% 7%;
 }
-div.container img{ /*this moves manually. cannot dynamically change to size*/
+
+img {
     display: block;
     align-items: center;
     border-radius: 50%;
@@ -23,12 +19,11 @@ div.container img{ /*this moves manually. cannot dynamically change to size*/
     height: 100px;
 }
 
-a.container{
-    text-decoration: none; /*remove underline*/
+a {
+    text-decoration: none;
 }
 
-div.homepage ul{
+div.homepage ul {
     padding-left: 20%;
-    list-style-type: none; /*remove dot*/
-    display: inline;
+    list-style-type: none;
 }

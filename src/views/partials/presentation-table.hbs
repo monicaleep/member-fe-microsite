@@ -1,13 +1,26 @@
-<tbody id="search-results">
+<link rel="stylesheet" type="text/css" href="/css/presentation-style.css" />
+{{#each presentations}}
+<div data-testId="presentation-row">
+    <div class="container">
+        <div class="homepage">
+            <ul>
+                <li>
+                    <a href="/presentations/{{id}}">
+                        {{ topic }}
+                    </a>
+                </li>
+                <li>{{ presenter }}
+                <li>
+                <li>{{ tag }}</li>
+                <li>
+                    {{> favorited_cell favorited=favorited id=id }}
+                </li>
+            </ul>
+        </div>
 
-  {{#each presentations}}
-    <tr data-testId="presentation-row">
-      <td>{{topic}}</td>
-      <td>{{presenter}}</td>
-      <td><a href="/presentations/{{id}}">Go to Presentation</a></td>
-      <td>
-          {{> favorited_cell favorited=favorited id=id }}
-      </td>
-    </tr>
-  {{/each}}
-</tbody>
+        <div class="image">
+            <img src="{{image}}" fetchpriority="high" alt="{{presenter}}" />
+        </div>
+    </div>
+</div>
+{{/each}}
