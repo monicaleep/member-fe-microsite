@@ -2,12 +2,12 @@
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 60% 40%;
-    gap: 10%;
     align-items: center;
+    gap: 10%;
     overflow: hidden;
     background: #0096bfab;
     border-radius: 10px;
-    margin: 5% 7%;
+    margin: 20px;
 }
 
 img {
@@ -19,11 +19,11 @@ img {
     height: 100px;
 }
 
-a {
-    text-decoration: none;
-}
-
 div.homepage ul {
     padding-left: 20%;
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
 }
