@@ -31,19 +31,20 @@ body {
     view-transition-name: page-transition;
 }
 
-ul.navigation {
+.navigation {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    border-radius: 10px;
     background-color: #0096bfab;
 }
 
-ul.navigation li {
+li {
     float: left;
 }
 
-ul.navigation li a{
+li a{
     display: block;
     color: white;
     text-align: center;
