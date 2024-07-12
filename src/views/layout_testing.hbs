@@ -1,19 +1,18 @@
 <head><link rel="stylesheet" type="text/css" href="/css/presentation-style.css" /></head>
 <body>
     {{#each presentations}}
-    <a class="container" href="/presentations/{{_id}}">
+    <a class="container" href="/presentations/{{id}}">
     <div class="container" >
         <div class="homepage">
             <ul>
-                <li>{{ name }}</li>
-                <li>{{ firstName }} {{ lastName }}</li>
-                <li>{{ email }}</li>
+                <li>{{ topic }}</li>
+                <li>{{ presenter }} <li>
                 <li>{{ tag }}</li>
             </ul>
         </div>
 
         <div class="image">
-            <img src="{{avatar}}" fetchpriority="high" alt="{{firstName}} {{lastName}}" />
+            <img src="{{image}}" fetchpriority="high" alt="{{presenter}}" />
         </div>
     </div>
     </a>
