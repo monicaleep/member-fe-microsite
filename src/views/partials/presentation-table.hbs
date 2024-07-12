@@ -1,13 +1,15 @@
 <link rel="stylesheet" type="text/css" href="/css/presentation-style.css" />
 <div id="search-results">
-  
   {{#each presentations}}
 <div data-testId="presentation-row">
-    <a class="container" href="/presentations/{{id}}">
     <div class="container" >
         <div class="homepage">
             <ul>
-                <li>{{ topic }}</li>
+                <li>
+    <a href="/presentations/{{id}}">
+          {{ topic }}
+    </a>
+        </li>
                 <li>{{ presenter }} <li>
                 <li>{{ tag }}</li>
         <li>
@@ -20,7 +22,6 @@
             <img src="{{image}}" fetchpriority="high" alt="{{presenter}}" />
         </div>
     </div>
-    </a>
 </div>
   {{/each}}
 </div>
