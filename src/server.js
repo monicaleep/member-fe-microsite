@@ -91,10 +91,18 @@ app.post("/search", (req, res) => {
     req.body.search,
     presentations,
   );
-  const presentationsWithFavorites = mergePresentationsWithFavorites(
+  let presentationsWithFavorites = mergePresentationsWithFavorites(
     presentationsFound,
     favorites,
   );
+
+  if (req.body['favorites'] == 'true'){
+    presentationsWithFavorites = presentationsWithFavorites.filter(presentation => presentation.favorited)
+    res.set('HX-Push-Url','/presentations?favorites=true')
+  } else {
+    res.set('HX-Push-Url', '/presentations')
+  }
+
   res.render("search", {
     presentations: presentationsWithFavorites,
     layout: false,
