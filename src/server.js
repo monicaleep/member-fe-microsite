@@ -41,11 +41,17 @@ app.use((req, _, next) => {
   next();
 });
 
-app.get("/", (_, res) => {
+app.get("/", (req, res) => {
   const pres_index = new Date().getUTCHours() % presentations.length;
   const featured_presentation = presentations[pres_index];
   const fun_fact = fun_facts[Math.floor(Math.random() * fun_facts.length)];
-  res.render("index", { featured_presentation, fun_fact });
+  const favorites = req.session.favorite_presentations;
+
+  res.render("index", {
+    featured_presentation,
+    fun_fact,
+    fav_count: favorites.length,
+  });
 });
 
 app.get("/presentations", (req, res) => {
@@ -62,6 +68,7 @@ app.get("/presentations", (req, res) => {
   res.render("presentations", {
     title: "Presentations",
     presentations: finalPresentations,
+    fav_count: favorites.length,
   });
 });
 
@@ -79,6 +86,7 @@ app.get("/presentations/:id", (req, res) => {
   res.render("presentation_description", {
     title: presentation.topic,
     presentation: { ...presentation, favorited },
+    fav_count: favorites.length,
   });
 });
 
@@ -98,6 +106,7 @@ app.post("/search", (req, res) => {
   );
   res.render("search", {
     presentations: presentationsWithFavorites,
+    fav_count: favorites.length,
     layout: false,
   });
 });
@@ -118,6 +127,7 @@ app.put("/presentations/favorite/:id", (req, res) => {
     favorited: !isExistingFavorite,
     id,
     layout: false,
+    fav_count: favorites.length,
   });
 });
 
