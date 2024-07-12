@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="/css/presentations.css" />
     <h1>{{title}}</h1>
 
-{{#if presentations.length}}
+
   <h3> 
     Search Presentations 
     <span id="htmx-indicator" class="htmx-indicator"> 
@@ -32,7 +32,5 @@
       {{> presentation-table presentations=presentations}}
     
   </table>
-{{^}}
- <h1 data-testId="no-favorites">No presentations found :(</h1>
-{{/if}}
+
 

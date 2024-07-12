@@ -5,6 +5,3 @@ export function mergePresentationsWithFavorites(presentations, favoriteIds){
   }));
 }
 
-export function getFavoritePresentations(presentations, favoriteIds){
-  return mergePresentationsWithFavorites(presentations, favoriteIds).filter(presentation => presentation.favorited)
-}
