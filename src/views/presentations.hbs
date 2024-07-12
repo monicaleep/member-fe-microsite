@@ -15,19 +15,9 @@ Searching...
        hx-post="/search" 
        hx-target="#search-results" 
        hx-swap="outerHTML"
-       hx-indicator="#htmx-indicator">
+       hx-indicator="#htmx-indicator"/>
 
-<table class="table">
-    <thead>
-    <tr>
-      <th>Topic</th>
-      <th>Presenter</th>
-      <th>Link</th>
-      <th>Favorite</th>
-    </tr>
-    </thead>
     {{> presentation-table presentations=presentations}}
    
-</table>
  
 
