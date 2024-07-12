@@ -9,33 +9,33 @@
     </span> 
   </h3>
   <form
-     hx-post="/search" 
-      hx-target="#search-results" 
-        hx-swap="outerHTML"
-        hx-trigger="change from:input[type='checkbox'], input changed from:input[type='search'] delay:500ms"
+    hx-post="/search" 
+    hx-target="#search-results" 
+    hx-swap="outerHTML"
+    hx-trigger="change from:input[type='checkbox'], input changed from:input[type='search'] delay:500ms"
   >
-  <input class="form-control" type="search" 
+  <input  type="search" 
         name="search" placeholder="Begin Typing To Search..." 
         data-testId="presentation-search"
         hx-indicator="#htmx-indicator">
-<input
-  type="checkbox"
-  value="true"
-  name="favorites"
-  hx-push-url="/presentations?favorite=true"
-class="form-control" 
-id="favorites"
- 
-/>
-<label for="favorites">
-  Display Favorites
-</label>
-</form>
+  <input
+    type="checkbox"
+    value="true"
+    name="favorites"
+    id="favorites"
+    {{#if favoritesView}}
+    checked="checked"
+    {{/if}}
+    />
+    <label for="favorites">
+      Display Favorites
+    </label>
+  </form>
   <table class="table">
       <thead>
       <tr>
-      <th>Topic</th>
-      <th>Presenter</th>
+        <th>Topic</th>
+        <th>Presenter</th>
         <th>Link</th>
         <th>Favorite</th>
       </tr>
@@ -43,6 +43,4 @@ id="favorites"
       {{> presentation-table presentations=presentations}}
     
   </table>
-
-
 

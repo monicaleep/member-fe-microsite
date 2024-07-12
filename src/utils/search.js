@@ -1,8 +1,8 @@
-const searchPresentations = (query, presentations) => {
+const searchPresentations = (query ='', presentations) => {
   return presentations.filter((pres) => {
     const searchableFields = [pres.topic, pres.presenter];
     return searchableFields.some((field) =>
-      field.toLowerCase().includes(query?.toLowerCase() ?? ''),
+      field.toLowerCase().includes(query?.toLowerCase()),
     );
   });
 };

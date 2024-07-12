@@ -50,16 +50,18 @@ app.get("/", (_, res) => {
 
 app.get("/presentations", (req, res) => {
   const favorites = req.session.favorite_presentations;
+  const isFavoritesView = req.query['favorites'] === 'true'
   let presentationsWithFavorites = mergePresentationsWithFavorites(
     presentations,
     favorites,
   );
-  if (req.query['favorites'] == 'true'){
+  if (isFavoritesView){
     presentationsWithFavorites = presentationsWithFavorites.filter(presentation => presentation.favorited)
   }
   res.render("presentations", {
     title: "Presentations",
     presentations: presentationsWithFavorites,
+    favoritesView: isFavoritesView
   });
 });
 
@@ -96,7 +98,7 @@ app.post("/search", (req, res) => {
     favorites,
   );
 
-  if (req.body['favorites'] == 'true'){
+  if (req.body['favorites'] === 'true'){
     presentationsWithFavorites = presentationsWithFavorites.filter(presentation => presentation.favorited)
     res.set('HX-Push-Url','/presentations?favorites=true')
   } else {
