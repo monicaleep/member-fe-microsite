@@ -50,14 +50,18 @@ app.get("/", (_, res) => {
 
 app.get("/presentations", (req, res) => {
   const favorites = req.session.favorite_presentations;
-  const presentationsWithFavorites = mergePresentationsWithFavorites(
+  const presentationsWithFavorites= mergePresentationsWithFavorites(
     presentations,
     favorites,
   );
 
+  const finalPresentations = req.query.favorites === "true"
+    ? presentationsWithFavorites.filter((pres) => pres.favorited)
+    : presentationsWithFavorites;
+
   res.render("presentations", {
     title: "Presentations",
-    presentations: presentationsWithFavorites,
+    presentations: finalPresentations,
   });
 });
 
