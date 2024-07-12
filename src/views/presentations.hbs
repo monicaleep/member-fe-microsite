@@ -1,36 +1,21 @@
-
 <link rel="stylesheet" type="text/css" href="/css/presentations.css" />
-    <h1>Presentations</h1>
+<h1>Presentations</h1>
 
-  <h3> 
-    Search Presentations 
-    <span id="htmx-indicator" class="htmx-indicator"> 
-  Searching... 
-    </span> 
-  </h3>
-  <form
-    hx-post="/search" 
-    hx-target="#search-results" 
-    hx-trigger="change from:input[type='checkbox'], input changed from:input[type='search'] delay:500ms"
-  >
-  <input  type="search" 
-        name="search" placeholder="Begin Typing To Search..." 
-        data-testId="presentation-search"
-        hx-indicator="#htmx-indicator">
-  <input
-    type="checkbox"
-    value="true"
-    name="favorites"
-    id="favorites"
-    {{#if favoritesView}}
-    checked="checked"
-    {{/if}}
-    />
-    <label for="favorites">
-      Display Favorites
-    </label>
-  </form>
-      <div id="search-results">
-    {{> presentation-table presentations=presentations}}
+<h3>
+  Search Presentations
+  <span id="htmx-indicator" class="htmx-indicator">
+    Searching...
+  </span>
+</h3>
+<form hx-post="/search" hx-target="#search-results"
+  hx-trigger="change from:input[type='checkbox'], input changed from:input[type='search'] delay:500ms">
+  <input type="search" name="search" placeholder="Begin Typing To Search..." data-testId="presentation-search"
+    hx-indicator="#htmx-indicator">
+  <input type="checkbox" value="true" name="favorites" id="favorites" {{#if favoritesView}} checked="checked" {{/if}} />
+  <label for="favorites">
+    Display Favorites
+  </label>
+</form>
+<div id="search-results">
+  {{> presentation-table presentations=presentations}}
 </div>
-
