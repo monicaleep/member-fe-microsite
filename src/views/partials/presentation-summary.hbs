@@ -4,24 +4,23 @@
       <div class="featured">
         <h2 class="blink">Featured Presentation</h2>
       </div>
-      <h1><a href="/presentations/{{presentation._id}}">{{presentation.name}}</a></h1>
+      <h1><a href="/presentations/{{presentation.id}}">{{presentation.topic}}</a></h1>
     {{^}}
-      <h1>{{presentation.name}}</h1>
+      <h1>{{presentation.topic}}</h1>
     {{/if}}
   </div>
 
   <div class="summary">
     <div>
-      <h2>{{presentation.firstName}} {{presentation.lastName}}</h2>
+      <h2>{{presentation.presenter}}</h2>
       <img
-        src="{{presentation.avatar}}"
+        src="{{presentation.image}}"
         fetchpriority="high"
-        alt="{{presentation.firstName}} {{presentation.lastName}}"
+        alt="{{presentation.presenter}}"
       />
     </div>
     <div>
-      <h4>{{presentation.email}}</h4>
-      <p>{{presentation._id}} </p>
+      <p>{{presentation.id}}</p>
       <p>{{presentation.tag}}</p>
       {{> favorited_cell favorited=presentation.favorited id=presentation._id }}
     </div>

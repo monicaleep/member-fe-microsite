@@ -33,5 +33,5 @@ img{
     -webkit-animation: font-blink 800ms step-end infinite;
     animation: font-blink 800ms step-end infinite;
 }
-@-webkit-keyframes font-blink { 50% { color: greenyellow; }}
-@keyframes font-blink { 50% { color: greenyellow; }}
+@-webkit-keyframes font-blink { 50% { color:deeppink; }}
+@keyframes font-blink { 50% { color: deeppink; }}
