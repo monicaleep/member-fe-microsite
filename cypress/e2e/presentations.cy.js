@@ -116,4 +116,17 @@ describe("Presentations Page", () => {
     // other presentations should not be favorited
     cy.getByTestId(presentationFavoriteToggle).contains("♡");
   });
+
+it('should display favorites set from the presentation page', ()=>{
+    cy.visit("/presentations");
+    // initial state is unfavorited
+    cy.getByTestId(presentationFavoriteToggle).contains("♡");
+    // toggle to be favorited
+    cy.getByTestId(presentationFavoriteToggle).click();
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
+    cy.visit('/presentations?favorites=true')
+    cy.getByTestId("presentation-row").should("have.length", 1);
+    cy.getByTestId(presentationFavoriteToggle).contains("♥️");
+
+})
 });
