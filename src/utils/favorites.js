@@ -4,3 +4,4 @@ export function mergePresentationsWithFavorites(presentations, favoriteIds){
     favorited: favoriteIds.includes(p.id),
   }));
 }
+

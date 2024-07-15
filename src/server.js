@@ -6,7 +6,7 @@ import fun_facts from "./db/fun_facts.json" with { type: "json" };
 import searchPresentations from "./utils/search.js";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
-import { mergePresentationsWithFavorites } from "./utils/favorites.js";
+import {  mergePresentationsWithFavorites } from "./utils/favorites.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
@@ -56,19 +56,18 @@ app.get("/", (req, res) => {
 
 app.get("/presentations", (req, res) => {
   const favorites = req.session.favorite_presentations;
-  const presentationsWithFavorites= mergePresentationsWithFavorites(
+  const isFavoritesView = req.query['favorites'] === 'true'
+  let presentationsWithFavorites = mergePresentationsWithFavorites(
     presentations,
     favorites,
   );
-
-  const finalPresentations = req.query.favorites === "true"
-    ? presentationsWithFavorites.filter((pres) => pres.favorited)
-    : presentationsWithFavorites;
-
+  if (isFavoritesView){
+    presentationsWithFavorites = presentationsWithFavorites.filter(presentation => presentation.favorited)
+  }
   res.render("presentations", {
     title: "Presentations",
-    presentations: finalPresentations,
-    fav_count: favorites.length,
+    presentations: presentationsWithFavorites,
+    favoritesView: isFavoritesView
   });
 });
 
@@ -90,6 +89,7 @@ app.get("/presentations/:id", (req, res) => {
   });
 });
 
+
 app.post("/fact", (_, res)=> {
   const fun_fact = fun_facts[Math.floor(Math.random() * fun_facts.length)];
   res.render("fact", { fun_fact, layout: false, })
@@ -100,10 +100,18 @@ app.post("/search", (req, res) => {
     req.body.search,
     presentations,
   );
-  const presentationsWithFavorites = mergePresentationsWithFavorites(
+  let presentationsWithFavorites = mergePresentationsWithFavorites(
     presentationsFound,
     favorites,
   );
+
+  if (req.body['favorites'] === 'true'){
+    presentationsWithFavorites = presentationsWithFavorites.filter(presentation => presentation.favorited)
+    res.set('HX-Push-Url','/presentations?favorites=true')
+  } else {
+    res.set('HX-Push-Url', '/presentations')
+  }
+
   res.render("search", {
     presentations: presentationsWithFavorites,
     fav_count: favorites.length,
