@@ -1,4 +1,4 @@
-import { getDay } from "./dates";
+import { getDay } from "./dates.js";
 
 export function mergePresentationsWithFavorites(presentations, favoriteIds){
   return presentations.map((p) => ({
