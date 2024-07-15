@@ -20,8 +20,10 @@
       />
     </div>
     <div>
+      <p>{{presentation.day}} - {{presentation.start_time}}</p>
       <p>{{presentation.id}}</p>
       <p>{{presentation.tag}}</p>
+   
       {{> favorited_cell favorited=presentation.favorited id=presentation.id }}
     </div>
   </div>
