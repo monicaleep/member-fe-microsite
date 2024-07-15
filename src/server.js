@@ -6,7 +6,8 @@ import fun_facts from "./db/fun_facts.json" with { type: "json" };
 import searchPresentations from "./utils/search.js";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
-import {  mergePresentationsWithFavorites } from "./utils/favorites.js";
+import { mergePresentationsWithFavorites } from "./utils/favorites.js";
+import { getDay } from "./utils/dates.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
@@ -84,7 +85,7 @@ app.get("/presentations/:id", (req, res) => {
   const favorited = favorites.includes(presentation.id);
   res.render("presentation_description", {
     title: presentation.topic,
-    presentation: { ...presentation, favorited },
+    presentation: { ...presentation, favorited, day: getDay(presentation) },
     fav_count: favorites.length,
   });
 });
