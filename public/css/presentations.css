@@ -1,1 +1,5 @@
-/* add your classes here, specific to the view your styling. */ 
+/* add your classes here, specific to the view your styling. */
+.search {
+  width: 25%;
+  min-width: 220px;
+}
