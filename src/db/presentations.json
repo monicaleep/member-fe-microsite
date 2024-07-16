@@ -125,11 +125,11 @@
     "day": "2024/7/16",
     "time_slot": "4:00pm - 4:20pm",
     "start_time": "4:00pm",
-    "topic": "The Presentation on Presentations (It's about presentations)",
-    "presenter": "Jcobb",
+    "topic": "Frontend Forward Microsite",
+    "presenter": "Monica",
     "duration": "20",
-    "image": "/images/presenters/james c.png",
-    "tag": "soft skills"
+    "image": "/images/presenters/monica p.png",
+    "tag": "technology"
   },
   {
     "id": "13",
