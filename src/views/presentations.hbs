@@ -7,10 +7,19 @@
     Searching...
   </span>
 </h3>
-<form hx-post="/search" hx-target="#search-results"
+<form 
+  hx-post="/search" 
+  hx-target="#search-results"
+  hx-indicator="#htmx-indicator"
+
   hx-trigger="change from:input[type='checkbox'], input changed from:input[type='search'] delay:500ms">
-  <input type="search" name="search" placeholder="Begin Typing To Search..." data-testId="presentation-search"
-    hx-indicator="#htmx-indicator">
+  
+  <input 
+    type="search" 
+    name="search" 
+    placeholder="Begin Typing To Search..." 
+    data-testId="presentation-search"
+    >
   <input type="checkbox" value="true" name="favorites" id="favorites" {{#if favoritesView}} checked="checked" {{/if}} />
   <label for="favorites">
     Display Favorites
